@@ -1,0 +1,147 @@
+// Mixins and examples
+
+/* Responsive Breakpoints
+   ========================================================================== */
+
+$S:     768px;   
+$M:     992px;     
+$L:     1200px;
+$XL:    1600px;
+$maxL:    $L - 1px;
+$maxM:    $M - 1px; 
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+  @else if $canvas == XL {
+   @media only screen and (min-width: $XL) { @content; } 
+  }
+  @else if $canvas == maxL {
+   @media only screen and (max-width: $maxL) { @content; } 
+  }
+  @else if $canvas == maxM {
+   @media only screen and (max-width: $maxM) { @content; } 
+  }
+  @else {
+   @media only screen and (min-width: $canvas) { @content; } 
+  }
+}
+ 
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Usage */
+
+.text-truncate {
+  @include text-truncate;
+}
+
+/* Placeholder
+  ========================================================================== */
+
+@mixin placeholder($color){
+  &.placeholder{
+    color: $color
+  }
+
+  &:-moz-placeholder{
+    color: $color
+  }
+    
+  &::-webkit-input-placeholder{
+    color: $color
+  }
+
+  &:-ms-input-placeholder{
+    color: $color
+  }
+}
+
+@mixin animation($val...){
+  -webkit-animation: $val;
+          animation: $val;
+}
+
+@mixin transform($val...){
+  -webkit-transform: $val;
+     -moz-transform: $val;
+      -ms-transform: $val;
+          transform: $val;
+}
+
+@mixin transition($val...){
+  -webkit-transition: $val;
+     -moz-transition: $val;
+      -ms-transition: $val;
+          transition: $val;
+}
+
+@mixin transform-origin($val) {
+   -webkit-transform-origin: $val;
+      -moz-transform-origin: $val;
+       -ms-transform-origin: $val;
+           transform-origin: $val;
+}
+
+@mixin appearance($val) {
+   -webkit-appearance: $val;
+      -moz-appearance: $val;
+           appearance: $val;
+}
+
+@mixin backface-visibility($val){
+   -webkit-backface-visibility: $val;
+      -moz-backface-visibility: $val;
+       -ms-backface-visibility: $val;   
+}
+
+@mixin center($xy:xy) {
+   @if $xy == xy {
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      right: auto;
+      @include transform(translateX(-50%) translateY(-50%));
+   }
+   @else if $xy == x {
+      left: 50%;
+      right: auto;
+      @include transform(translateX(-50%));
+   }
+   @else if $xy == y {
+      top: 50%;
+      bottom: auto;
+      @include transform(translateY(-50%));
+   }
+}
+
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin multiline-ellipsis($font-size, $line-height, $lines-to-show){
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,300 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>LuxSellect</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS -->
+		
+	<link rel="stylesheet" href="assets/css/normalize.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/slick-theme.css">
+	<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="assets/css/perfect-scrollbar.css">
+	
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+
+	<!-- FACEBOOK -->
+	<meta property="og:url"                content="" />
+	<meta property="og:type"               content="" />
+	<meta property="og:title"              content="" />
+	<meta property="og:description"        content="" />
+	<meta property="og:image"              content="" />
+
+</head>
+<body>
+ 
+	<div class="PageWrapper">
+		<header class="Header">
+			<div class="container">
+				<a href="index.html" class="Header__logo">
+					<img src="assets/img/logo.png" alt="LuxSellect">
+				</a>
+
+				<span></span>
+
+				<a href="#/" class="MenuTrigger">
+					<span></span>
+				</a>
+
+				<nav class="Menu">
+					<div class="Menu__info">
+						<img src="assets/img/logo-negativo.png" alt="LuxSellect">
+						<p>
+							Olá, <br><br> Bem vindo a página da LuxSellect Automóveis.<br>Encontre os melhores veículos aqui.
+						</p>
+
+						<ul class="Menu__redes">
+							<li>
+								<a href="/#" target="_blank">
+									<img src="assets/img/icons/facebook.svg" alt="Facebook">
+								</a>
+							</li>
+							<li>
+								<a href="/#" target="_blank">
+									<img src="assets/img/icons/twitter.svg" alt="Twitter">
+								</a>
+							</li>
+						</ul>
+					</div> <!-- Menu__info -->
+
+					<ul class="Menu__nav">
+						<li><a href="#empresa" class="js-scroll">EMPRESA</a></li>
+						<li><a href="#carros" class="js-scroll">CARROS</a></li>
+						<li><a href="#index.html" class="Menu__navLogo"><img src="assets/img/logo.png" alt="LUXSELLECT"></a></li>
+						<li><a href="blog.html">BLOG</a></li>
+						<li><a href="#/" data-toggle="modal" data-target="#modalContato">CONTATO</a></li>
+					</ul>
+				</nav> <!-- Menu -->
+
+			</div> <!-- container -->
+		</header> <!-- Header -->
+
+		<div class="PageContent">
+
+			<section class="Banner js-bannerSlider">
+				<div class="Banner__item" style="background-image: url(assets/img/banner.jpg);">
+					<div class="container">
+						<div class="Banner__content">
+							<h2><span>FERRARI</span>812 Superfast</h2>
+						</div> <!-- Banner-content -->
+						<a href="#carros" class="Banner__link">ver todos os lançamentos</a>
+					</div> <!-- container -->
+				</div>  <!-- Banner__item -->
+
+				<div class="Banner__item" style="background-image: url(assets/img/banner.jpg);">
+					<div class="container">
+						<div class="Banner__content">
+							<h2><span>FERRARI</span>813 Superfast</h2>
+						</div>
+						<a href="#carros" class="Banner__link">ver todos os lançamentos</a>
+						<!-- Banner-content -->
+					</div>
+					<!-- container -->
+				</div>
+				<!-- Banner__item -->
+
+				<div class="Banner__item" style="background-image: url(assets/img/banner.jpg);">
+					<div class="container">
+						<div class="Banner__content">
+							<h2><span>FERRARI</span>814 Superfast</h2>
+						</div>
+						<a href="#carros" class="Banner__link">ver todos os lançamentos</a>
+						<!-- Banner-content -->
+					</div>
+					<!-- container -->
+				</div>
+				<!-- Banner__item -->
+				
+			</section> <!-- Banner -->
+
+			<section class="Grid js-grid">
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+					<div class="Grid__title">
+						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+					</div> <!-- Grid__title -->
+
+					<div class="Grid__buttons">
+						<a href="carro.html">VER DETALHES</a>
+						<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+					</div> <!-- Grid__buttons -->
+				</div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+					<div class="Grid__title">
+						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+					</div> <!-- Grid__title -->
+
+					<div class="Grid__buttons">
+						<a href="carro.html">VER DETALHES</a>
+						<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+					</div> <!-- Grid__buttons -->
+				</div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+					<div class="Grid__title">
+						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+					</div> <!-- Grid__title -->
+
+					<div class="Grid__buttons">
+						<a href="carro.html">VER DETALHES</a>
+						<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+					</div> <!-- Grid__buttons -->
+				</div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
+          <div class="Grid__title">
+            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
+          </div> <!-- Grid__title -->
+
+          <div class="Grid__buttons">
+            <a href="carro.html">VER DETALHES</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+          </div> <!-- Grid__buttons -->
+        </div> <!-- Grid__item mix -->
+
+
+
+			</section> <!-- Grid -->
+
+			<section class="Info">
+				<div class="Info__item">
+					<h3>avalie seu<br>veículo online</h3>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalAvalie">avalie</a>
+				</div>
+				<div class="Info__item">
+					<h3>financiamento</h3>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalFinanciamento">financie</a>
+				</div>
+				<div class="Info__item">
+					<h3>fale conosco</h3>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalContato">contato</a>
+				</div>
+			</section> <!-- Info -->
+		</div> <!-- PageContent -->
+
+		<footer class="SiteFooter">
+			<div class="container">
+				<img src="assets/img/logo.png" alt="LUXSELLECT" class="SiteFooter__logo">
+
+				<div class="SiteFooter__social">
+					<span>LUX SOCIAL</span>
+					<ul>
+						<li><a href="#"><img src="assets/img/.svg" alt=""></a></li>
+						<li><a href="#"><img src="assets/img/.svg" alt=""></a></li>
+					</ul>
+				</div>				
+			</div> <!-- container -->
+
+		</footer> <!-- SiteFooter -->
+	</div> <!-- PageWrapper -->
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key="></script>
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/isotope.pkgd.min.js"></script>
+	<script src="assets/js/jquery.fancybox.min.js"></script>
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/js.js"></script>
+
+	
+
+</body>
+</html>

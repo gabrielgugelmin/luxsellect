@@ -1,0 +1,276 @@
+.Header{
+  @include transition(all .4s ease);
+
+  background-color: $athens-gray;
+  box-shadow: 0 0 5px 1px rgba(black, .3);
+  height: 70px;
+  left: 0;
+  margin: 0 auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  @include MQ(S){
+    background-color: transparent;
+    box-shadow: none;
+    top: 60px;
+  }
+
+  > .container {
+    height: 100%;
+  }
+
+  &--internal{
+    @extend .Header;
+  }
+
+  &.is-scrolling,
+  &--internal{
+    background-color: $athens-gray;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+    top: 0;
+
+    @include MQ(S){
+      height: 70px;
+
+      .Header__logo{
+        img{
+          width: 100px;
+        }
+      }
+
+      .Menu__navLogo{
+        img{
+          max-width: 160px;
+        }
+      }
+    }
+  }
+
+  &__logo{
+    @include transition(all .4s ease);
+    @include center(y);
+
+    left: 30px;
+    display: inline-block;
+    position: absolute;
+
+    img{
+      @include transition(width .25s ease);
+      width: 140px;
+    }
+
+    @include MQ(S){
+      display: none;
+    }
+  }
+}
+
+.Menu{
+  @include transform(translateX(-100%));
+  @include transition(all .6s ease);
+  
+  background-color: $shark;
+  box-shadow: 1px -3px 2px 1px rgba(0, 0, 0, .3);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;  
+  visibility: hidden;
+  width: calc(100% - 70px);
+  z-index: 1;
+
+  @include MQ(S){
+    @include transform(none);
+
+    background-color: transparent;
+    box-shadow: none;
+    display: block;    
+    position: absolute;
+    margin: 0 auto;
+    height: auto;
+    opacity: 1;
+    top: 8px;
+    visibility: visible;
+    width: 100%;
+
+    &__nav{
+      width: 100%;
+    }
+  }
+
+  // MODIFICADORES
+  &--open{
+    @include transform(translateX(0));
+
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__nav{
+    list-style: none;
+    margin: 0;
+    padding:  30px 0 30px;
+    text-align: center;
+
+    @include MQ(S){
+      display: table;
+      margin: 0 auto;
+      max-width: 1170px;
+      padding: 0;
+    }
+
+    a{
+      @include transition(color .3s ease);
+
+      color: white;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2.6px;
+      padding: 15px 0 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      @include MQ(S){
+        color: $shark;
+        padding: 15px 0;
+      }
+    }
+
+    li{
+      &:nth-child(3) {
+        display: none;
+
+        @include MQ(S) {
+          display: table-cell;
+
+          img {
+            @include transition(all .3s ease);
+            max-width: 270px;
+          }
+        }
+      }
+
+      @include MQ(S){
+        display: table-cell;
+        padding: 0 15px;
+        text-align: center;
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  &__info{
+    padding: 20px 30px 0;
+
+    @include MQ(S){
+      display: none;
+    }
+
+    > img{
+      display: block;
+      max-width: 200px;
+      margin: 0 auto 45px;
+    }
+
+    p{
+      color: $porcelain;
+      font-size: 14px;
+      line-height: 1.4;
+      text-align: center;
+    }
+  }
+
+  &__redes{
+    text-align: center;
+    padding: 0;
+    margin: 25px 0;
+
+    li{
+      display: inline-block;
+      margin: 0 10px;
+
+      img{
+        max-height: 20px;
+        max-width: 20px;
+      }
+    }
+  }
+}
+
+// MENU TRIGGER
+
+.MenuTrigger{
+	@include center(y);
+	@include transition(all .3s linear);
+
+	display: inline-block;
+	height: 25px;
+	position: absolute;
+	right: 25px;
+	text-decoration: none;
+	width: 32px;
+	z-index: 2;
+
+	@include MQ(S){
+		display: none;
+	}
+
+	span{
+		@include center;
+		@include transition(all .2s linear);
+
+		background-color: $shark;
+		display: block;
+		height: 3px;
+		position: relative;
+		width: 100%;
+
+		&::after, &::before{
+			@include transition(all .3s linear);
+			@include transform(rotate(0));
+
+			background-color: $shark;
+			content: "";
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+
+		&::after{
+			bottom: -7px;
+		}
+
+		&::before{
+			top: -7px;			
+    }
+	}
+
+	&.is-open{
+		span{
+			background-color: transparent  !important;
+
+			&::before, &::after{
+				background-color: $shark;
+			}
+
+			&:before{
+				@include transform(rotate(45deg));
+
+				top: 0  !important;
+			}
+
+			&:after{
+				@include transform(rotate(-45deg));
+
+				bottom: 0 !important;
+			}
+		}
+	}
+}
