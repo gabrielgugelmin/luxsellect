@@ -1,0 +1,21 @@
+.slick-dots {
+  bottom: 20px;
+  
+  li {
+    @include transition(all .35s ease);
+
+    background: rgba(black, .34);
+    border-radius: 50%;
+    height: 14px;
+    margin: 0 4px;
+    width: 14px;
+
+    &.slick-active {
+      background: white;
+    }
+
+    button {
+      display: none;
+    }
+  }
+}

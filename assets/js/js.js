@@ -2,9 +2,10 @@ $(function(){
 
   // BANNER
   $('.js-bannerSlider').slick({
-    fade: true,
     arrows: false,
     cssEase: 'linear',
+    dots: true,
+    fade: true,
     slide: '.Banner__item'
   });
 
@@ -66,7 +67,84 @@ $(function(){
     }
 
   });
+
+  if ($('.js-grid').length) {
+    getProducts();
+  }
 });
+
+
+function initIsotope() {
+  // GRID
+  // init Isotope
+  var $container = $('.js-grid').isotope({
+    itemSelector: '.Grid__item',
+    layoutMode: 'fitRows',
+    getSortData: {
+      category: '[data-category]',
+      marca: '[data-marca]',
+      modelo: '[data-modelo]',
+      valor: '[data-valor] parseInt'
+    }
+  });
+
+  var initShow = 8; //number of items loaded on init & onclick load more button
+  var counter = initShow; //counter for load more button
+  var iso = $container.data('isotope'); // get Isotope instance
+
+  if ($container.is('#Grid')) {
+    //append load more button
+    $('.Grid__load .container').append('<a href="#/" class="Grid__loadmore" id="LoadProducts">see all</a>');
+  }
+
+  loadMore(initShow); //execute function onload
+
+  function loadMore(toShow) {
+    var elems = $container.isotope('getFilteredItemElements');
+
+    $container.find(".hidden").removeClass("hidden");
+
+    var hiddenElems = iso.filteredItems.slice(toShow, elems.length).map(function (item) {
+      return item.element;
+    });
+
+    $(hiddenElems).addClass('hidden');
+    $container.isotope('layout');
+
+    //when no more to load, hide show more button
+    if (hiddenElems.length == 0 && $container.is('#Grid')) {
+      jQuery("#LoadProducts").hide();
+      //$('.Grid__load .container').append('<a href="#/" id="entreContato" class="Grid__loadmore" data-toggle="modal" data-target="#modalContato">entre em contato</a>');
+    } else {
+      //jQuery("#entreContato").show();
+      jQuery("#LoadProducts").show();
+    };
+
+    $('#LoadProducts').removeClass('is-loading');
+
+  }
+
+
+
+
+  //when load more button clicked
+  $("#LoadProducts").click(function () {
+    $(this).addClass('is-loading');
+
+    if ($('.js-filter li').data('clicked')) {
+      //when filter button clicked, set initial value for counter
+      counter = initShow;
+      $('.js-filter li').data('clicked', false);
+    } else {
+      counter = counter;
+    };
+
+    counter = counter + initShow;
+
+    loadMore(counter);
+  });
+
+}
 
 function getProducts() {
 
@@ -91,7 +169,8 @@ function getProducts() {
   //Veriavel com categoria
   var idCategoria = query_string.categoria;
 
-  $.getJSON("/assets/json/veiculos.php", function (data) {
+  // /assets/json/veiculos.php
+  $.getJSON("assets/json/produtos.json", function (data) {
 
   })
     .fail(function (data) {
@@ -102,20 +181,22 @@ function getProducts() {
       var x = false;
       $.each(data, function (index, element) {
         if (element.titulo != '') {
+          console.log(element);
 
-          var $box = '<div class="Grid__item mix ' + element.idVeiculoCategoria + '" style="background-image: url(/assets/img/albuns/album_' + element.idAlbum + '/' + element.capa + ');" data-category="' + element.idVeiculoCategoria + '" data-marca="' + element.idMarca + '" data-modelo="' + element.modelo + '" data-valor="' + element.preco + '">' +
-            '<div class="Grid__title">' +
-            '<h4>' + element.idMarca + ' <small>' + element.modelo + '</small></h4>' +
+          var $box = '<div class="Grid__item mix ' + element[0].idVeiculoCategoria + '" data-marca="' + element[0].marca + '" data-modelo="' + element[0].nome + '" data-valor="' + element[0].preco + '">' +
+            '<div class="Grid__img" style="background-image: url(assets/img/carros/' + element[0].imagem +'.jpg);"></div>' +
+              '<div class="Grid__content">' +
+              '<h4>' +
+            '<small>' + element[0].marca + '</small> ' + element[0].nome +
+							'</h4>' +
+              '<div class="Grid__date">' +  element[0].ano + '</div>' +
+            '<div class="Grid__price">' + element[0].preco + '</div>' +
             '</div>' +
-            '<div class="Grid__buttons">' +
-            '<a href="/estoque/' + element.alias + '/' + element.idVeiculo + '">VER DETALHES</a>' +
-            '<a href="#/" class="btnProposta" data-veiculo="' + element.idMarca + ' ' + element.modelo + ' / ' + element.anoFabricacao + ' - ' + element.anoModelo + ' / ' + element.idCor + ' / R$ ' + element.preco + '" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>' +
-            '</div>' +
-            '</div>';
+          '</div>';
 
         } else {
 
-          var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
+          //var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
         }
 
         $(".js-grid").append($box);
