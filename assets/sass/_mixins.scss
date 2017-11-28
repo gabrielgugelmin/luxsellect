@@ -33,6 +33,20 @@ $maxM:    $M - 1px;
    @media only screen and (min-width: $canvas) { @content; } 
   }
 }
+
+@mixin clearfix() {
+  & {
+      *zoom: 1;
+  }
+  &:before,
+  &:after {
+      content: "";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+}
  
 
 @mixin text-truncate {

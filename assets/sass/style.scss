@@ -140,6 +140,7 @@ html, body {
   flex-wrap: wrap;
 
   &__item {
+    overflow: hidden;
     width: 100%;
 
     @include MQ(570px){
@@ -151,7 +152,36 @@ html, body {
     }
  
     @include MQ(M) {
+      @include transition(all .3s ease);
+      box-shadow: 0;
+      position: relative;
       width: 25%;
+
+      
+    @include MQ(M) {
+      &::after {
+        @include transition(all .3s ease);
+        background-color: $ship;
+        bottom: 0;
+        content: "";
+        height: 4px;
+        display: block;
+        left: 0;
+        position: absolute;
+        width: 0;
+      }
+    }
+
+      &:hover {
+        box-shadow: 0 2px 4px 1px rgba(black, .5);
+        cursor: pointer;
+        z-index: 1;
+
+          &::after{
+            width: 100%;
+          }
+
+      }
     }
 
     &:nth-child(3n+1) {
@@ -174,10 +204,12 @@ html, body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    position: relative;
 
     @include MQ(S) {
       height: 225px;
     }
+
   }
 
   &__content {
@@ -296,4 +328,163 @@ html, body {
     }
   }
 
+}
+
+.Info {
+  border-top: 1px solid #bebcbc;
+
+  @include MQ(M) {
+    
+  }
+
+  &__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 440px;
+
+    @include MQ(M){
+      height: 410px;
+    }
+  }
+
+  &__text {
+    padding: 30px 15px;
+
+    @include MQ(S){
+      padding: 40px 40px;
+    }
+
+    h3 {
+      font-family: $ss;
+      letter-spacing: 12px;
+      margin-top: 0;
+      font-size: 20px;
+      color: $ship;
+      font-weight: 400;
+      margin-bottom: 30px;
+
+      @include MQ(M) {
+        font-size: 24px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include MQ(M) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__item {
+    @include MQ(S){
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+
+      > div {
+        width: 50%;
+      }
+    }
+
+    &--right {
+      @extend .Info__item;
+
+      .Info__img {
+        order: 1;
+      }
+
+      .Info__text {
+        h3,
+        p {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.Instagram {
+  background-color: $ship;
+  padding-bottom: 40px;
+  padding-top: 60px;
+
+  h3 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 6px;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: $ss;
+    margin-bottom: 40px;
+
+    @include MQ(S) {
+      letter-spacing: 12px;
+      font-size: 24px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  @include MQ(M) {
+    padding-top: 80px;
+
+    > .container {
+      display: flex;
+      align-items: center;
+      max-width: 860px;
+    }
+  }
+
+  &__box {
+    > img {
+      max-width: 265px;
+      display: block;
+      margin: 15px auto 0;
+    }
+
+    @include MQ(M) {
+      margin-left: 60px;
+      width: 60%;
+    }
+  }
+
+  &__iphone {
+    display: none;
+
+    @include MQ(M) {
+      display: block;
+    }
+  }
+}
+
+.Instafeed {
+  @include clearfix;
+  display: block;
+  margin: 60px auto 0;
+  max-width: 460px;
+
+  &__item {
+    float: left;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 115px;
+    max-width: 115px;
+    width: 100%;
+  }
 }
