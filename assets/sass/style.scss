@@ -3,6 +3,7 @@
 @import 'fonts';
 @import 'elements';
 @import 'header';
+@import 'footer';
 
 img{
   max-width: 100%;
@@ -331,17 +332,15 @@ html, body {
 }
 
 .Info {
-  border-top: 1px solid #bebcbc;
-
-  @include MQ(M) {
-    
-  }
-
   &__img {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 440px;
+    height: 360px;
+
+    @include MQ(S) {
+      height: 440px;
+    }
 
     @include MQ(M){
       height: 410px;
@@ -412,6 +411,10 @@ html, body {
       }
     }
   }
+
+  &--border {    
+    border-top: 1px solid #bebcbc;
+  }  
 }
 
 .Instagram {
@@ -475,7 +478,11 @@ html, body {
   @include clearfix;
   display: block;
   margin: 60px auto 0;
-  max-width: 460px;
+  max-width: 230px;
+
+  @include MQ(S) {
+    max-width: 460px;
+  }
 
   &__item {
     float: left;
@@ -487,4 +494,172 @@ html, body {
     max-width: 115px;
     width: 100%;
   }
+}
+
+.Contato {
+  display: flex;
+  flex-direction: column;
+
+  @include MQ(S) {
+    flex-direction: row;
+  }
+
+  &__column {
+    width: 100%;
+
+    &:first-child {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 360px;
+
+      @include MQ(S) {
+        height: auto;
+      }
+    }
+
+    &:last-child {
+      padding: 30px;
+
+      @include MQ(S) {
+        padding: 90px 45px 120px;
+      }
+    }
+
+    @include MQ(S) {
+      width: 50%;
+    }
+  }
+
+  h3,
+  p {
+    color: $ship;
+  }
+
+  h3 {
+    font-family: $ss;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 12px;
+    margin-bottom: 30px;
+    margin-top: 0;
+
+    @include MQ(S) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+
+  .Form {
+    max-width: 330px;
+    margin: 0;
+  }
+}
+
+.Form {
+  width: 100%;
+
+  &__group {
+    margin-bottom: 15px;
+  }
+
+  input,
+  textarea,
+  button[type="submit"] {
+    letter-spacing: 2px;
+    word-spacing: 4px;
+  }
+
+  input,
+  textarea {
+    @include placeholder(black);
+    @include transition(all .3s ease);
+
+    border: 1px solid black;
+    color: black;
+    font-size: 12px;
+    line-height: 1.2;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 1px 1px rgba(black, .3 );
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input {
+    height: 50px;
+  }
+
+  button[type="submit"] {
+    @include transition(all .3s ease);
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.ContactList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    padding-left: 35px;
+    position: relative;
+    margin-bottom: 35px;
+    font-size: 16px;
+    font-weight: 500;
+
+    &::before {
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 20px;
+      left: 0;
+      position: absolute;
+      top: -4px;
+      width: 20px;
+    }
+
+    &:first-child {
+      &::before {
+        background-image: url(../img/icons/tel.svg);
+      }
+    }
+
+    &:last-child {
+      &::before {
+        background-image: url(../img/icons/pin.svg);
+      }
+    }
+  }
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }

@@ -1,0 +1,75 @@
+.SiteFooter {
+  background-color: $ship ;
+  padding: 45px 0;
+
+  &__logo {
+    display: block;
+    max-width: 220px;
+    margin: 0 auto;
+
+    @include MQ(S) {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 4px 0 0;
+    }
+  }
+
+  &__social {
+    text-align: center;
+
+    @include MQ(S) {
+      display: inline-block;
+      float: right;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include MQ(S) {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    li {
+      border-radius: 50%;
+      border: 2px solid white;
+      display: inline-block;
+      height: 40px;
+      text-align: center;
+      width: 40px;
+      margin: 0 10px;
+
+      @include MQ(S) {
+        margin: 0 3px;
+      }
+
+      a {
+        display: block;
+        height: 100%;
+        position: relative;
+      }
+
+      img {
+        @include center;
+        max-height: 20px;
+        max-width: 20px;
+        position: absolute;
+      }
+    }
+
+    span {
+      font-weight: 600;
+      color: white;
+      display: block;
+      margin: 45px 0 25px;
+
+      @include MQ(S) {
+        display: inline-block;
+        margin: 0 5px;
+      }
+    }
+  }
+}
