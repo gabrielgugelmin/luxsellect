@@ -21,6 +21,29 @@ $(function(){
     }
   });
 
+  // SMOOTH SCROLL
+  $('.js-scroll').on('click', function (event) {
+    if (this.hash !== '') {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      if (checkWindowWidth() == 'desktop') {
+        h = 70;
+      } else {
+        h = 60;
+      }
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top - h
+      }, 800, function () {
+        window.location.hash = hash;
+      });
+    } // End if
+
+    closeMenu();
+  });
+
   // menu fixo ao scollar
   $(window).scroll(function () {
 
@@ -35,19 +58,8 @@ $(function(){
   $('#formContato').submit(function (e) {
 
     e.preventDefault();
-    var qtdErro = 0;
 
-    $(this).find('[data-validate=true]').each(function () {
-      var value = $.trim($(this).find('input, textarea').val());
-      if (!value.length > 0) {
-        $(this).addClass('error');
-        qtdErro++;
-      } else {
-        $(this).removeClass('error');
-      }
-    });
-
-    if (qtdErro == 0) {
+    if (formValidate($(this)) == 0) {
       return $.ajax({
         type: "POST",
         url: "/ajax/contato.php",
@@ -62,8 +74,31 @@ $(function(){
           }
         }
       });
-    } else {
-      alert('Erro ao tentar enviar mensagem. Tente novamente.');
+    }
+
+  });
+
+
+  /* FORM NEWSLETTER */
+  $('#formNews').submit(function (e) {
+
+    e.preventDefault();
+
+    if (formValidate($(this)) == 0) {
+      return $.ajax({
+        type: "POST",
+        url: "/ajax/newsletter.php",
+        data: $(this).serialize(),
+        success: function (data) {
+          if (data === "success") {
+            alert('Cadastro realizado com sucesso.');
+            // Limpa o form
+            $('#formNews').trigger("reset");
+          } else {
+            alert('Erro ao cadastrar: ' + data);
+          }
+        }
+      });
     }
 
   });
@@ -411,6 +446,23 @@ $(function(){
   }
 });
 
+function formValidate(form) {
+  var qtdErro = 0;
+
+  form.find('[data-validate=true]').each(function () {
+    var value = $.trim(form.find('input, textarea').val());
+    if (!value.length > 0) {
+      $(this).addClass('error');
+      qtdErro++;
+
+      return qtdErro;
+    } else {
+      $(this).removeClass('error');
+
+      return qtdErro;
+    }
+  });
+}
 
 function initIsotope() {
   // GRID
@@ -430,7 +482,7 @@ function initIsotope() {
   var counter = initShow; //counter for load more button
   var iso = $container.data('isotope'); // get Isotope instance
 
-  if ($container.is('#Grid')) {
+  if ($container.is('Cars')) {
     //append load more button
     $('.Grid__load .container').append('<a href="#/" class="Grid__loadmore" id="LoadProducts">see all</a>');
   }

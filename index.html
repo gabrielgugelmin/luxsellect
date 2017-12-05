@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	
 	<!-- FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 
 
@@ -66,11 +66,11 @@
 					</div> <!-- Menu__info -->
 
 					<ul class="Menu__nav">
-						<li><a href="#empresa" class="js-scroll">EMPRESA</a></li>
-						<li><a href="#carros" class="js-scroll">CARROS</a></li>
+						<li><a href="#LuxSellEct" class="js-scroll">EMPRESA</a></li>
+						<li><a href="#Cars" class="js-scroll">CARROS</a></li>
 						<li><a href="#index.html" class="Menu__navLogo"><img src="assets/img/logo.png" alt="LUXSELLECT"></a></li>
 						<li><a href="blog.html">BLOG</a></li>
-						<li><a href="#/" data-toggle="modal" data-target="#modalContato">CONTATO</a></li>
+						<li><a href="#Contact" class="js-scroll">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -122,7 +122,7 @@
 					</div>
 				</div>
 
-				<div id="Grid" class="Grid js-grid">
+				<div id="Cars" class="Grid js-grid">
 
 					<!--<div class="Grid__item mix" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
 						<div class="Grid__img" style="background-image: url(assets/img/carros/c1.jpg);"></div>
@@ -151,7 +151,7 @@
 
 			</section> <!-- Release -->
 
-			<section class="Info--border">
+			<section id="LuxSellEct" class="Info--border">
 				<div class="Info__item">
 					<div class="Info__img" style="background-image: url(assets/img/sobre.jpg);"></div>
 					<div class="Info__text">
@@ -183,7 +183,7 @@
 
 			<section class="Instagram">
 				<h3>
-					SIGA A LUXSELLECT<br>NO INSTAGRAM
+					SIGA A LUXSELLECT <br>NO INSTAGRAM
 				</h3>
 
 				<div class="container">
@@ -199,24 +199,24 @@
 				</div>
 			</section> <!-- Instagram -->
 
-			<section class="Contato">
+			<section id="Contact" class="Contato">
 				<div class="Contato__column" style="background-image: url(assets/img/contato.jpg); "></div>
 				<div class="Contato__column">
 					<h3>CONTATO</h3>
 					<p>
 						 Quer falar com a Lux? Entre em contato abaixo e retornaremos brevemente!
 					</p>
-					<form action="" class="Form">
-						<div class="Form__group">
+					<form action="" class="Form" id="formContato">
+						<div class="Form__group" data-validate="true">
 							<input type="text" placeholder="NOME">
 						</div>
-						<div class="Form__group">
+						<div class="Form__group" data-validate="true">
 							<input type="email" placeholder="E-MAIL">
 						</div>
 						<div class="Form__group">
 							<input type="tel" placeholder="TELEFONE">
 						</div>
-						<div class="Form__group">
+						<div class="Form__group" data-validate="true">
 							<textarea name="" id="" cols="5" rows="5" placeholder="MENSAGEM"></textarea>
 						</div>
 
@@ -233,11 +233,11 @@
 						<p>
 							 Cadastre seu nome e e-mail para receber as últimas novidades e lançamentos da LuxSellEct:
 						</p>
-						<form action="" class="Form">
-							<div class="Form__group">
+						<form action="" class="Form" id="formNews">
+							<div class="Form__group" data-validate="true">
 								<input type="text" placeholder="NOME">
 							</div>
-							<div class="Form__group">
+							<div class="Form__group" data-validate="true">
 								<input type="email" placeholder="E-MAIL">
 							</div>
 
@@ -274,8 +274,36 @@
 				<div class="SiteFooter__social">
 					<span>LUX SOCIAL</span>
 					<ul>
-						<li><a href="#"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a></li>
-						<li><a href="#"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a></li>
+						<li>
+							<a href="#">
+								<svg width="24px" height="49px" viewBox="0 0 24 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+									<title>facebook</title>
+									<defs></defs>
+									<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g class="icon" fill-rule="nonzero" fill="#FFFFFF">
+											<path d="M23.43,15.739 L15.785,15.739 L15.785,10.725 C15.785,8.842 17.033,8.403 17.912,8.403 C18.789,8.403 23.307,8.403 23.307,8.403 L23.307,0.125 L15.877,0.096 C7.629,0.096 5.752,6.27 5.752,10.221 L5.752,15.739 L0.982,15.739 L0.982,24.269 L5.752,24.269 C5.752,35.216 5.752,48.406 5.752,48.406 L15.785,48.406 C15.785,48.406 15.785,35.086 15.785,24.269 L22.555,24.269 L23.43,15.739 Z"
+											 id="Shape"></path>
+										</g>
+									</g>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<svg width="50px" height="41px" viewBox="0 0 50 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+									<title>twitter</title>
+									<defs></defs>
+									<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g class="icon" fill-rule="nonzero" fill="#FFFFFF">
+											<path d="M49.837,5.065 C48.026,5.87 46.077,6.413 44.032,6.656 C46.12,5.406 47.721,3.426 48.476,1.064 C46.523,2.223 44.361,3.064 42.058,3.518 C40.215,1.554 37.588,0.326 34.681,0.326 C29.1,0.326 24.575,4.851 24.575,10.433 C24.575,11.224 24.664,11.995 24.837,12.736 C16.437,12.314 8.989,8.291 4.004,2.176 C3.134,3.668 2.636,5.404 2.636,7.258 C2.636,10.764 4.42,13.858 7.132,15.67 C5.476,15.617 3.917,15.162 2.554,14.405 C2.553,14.447 2.553,14.49 2.553,14.533 C2.553,19.429 6.037,23.513 10.661,24.443 C9.813,24.673 8.92,24.797 7.998,24.797 C7.346,24.797 6.713,24.734 6.096,24.615 C7.383,28.63 11.115,31.553 15.537,31.634 C12.078,34.345 7.721,35.961 2.985,35.961 C2.17,35.961 1.365,35.913 0.574,35.819 C5.048,38.688 10.36,40.36 16.067,40.36 C34.658,40.36 44.823,24.96 44.823,11.604 C44.823,11.166 44.814,10.729 44.795,10.295 C46.769,8.873 48.483,7.092 49.837,5.065 Z"
+											 id="Shape"></path>
+										</g>
+									</g>
+								</svg>
+							</a>
+						</li>
 					</ul>
 				</div>				
 			</div> <!-- container -->

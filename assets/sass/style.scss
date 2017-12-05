@@ -47,6 +47,7 @@ html, body {
 
 .Banner {
   height: 380px;
+  margin: 0;
 
   .container {
     height: 100%;
@@ -54,7 +55,11 @@ html, body {
   }
 
   @include MQ(S) {
-    height: 95vh;
+    height: 600px;
+  }
+
+  @include MQ(M) {
+    height: 800px;
   }
 
   &__item {
@@ -78,9 +83,13 @@ html, body {
 
     @include MQ(S){
       left: inherit;
-      padding: 30px 30px 50px;
-      right: 10%;
+      right: 5%;
       width: 300px;
+    }
+
+    @include MQ(M){
+      right: 10%;
+      padding: 30px 30px 50px;
     }
 
     h2 {      
@@ -96,6 +105,14 @@ html, body {
         letter-spacing: 6px;
         margin-bottom: 10px;
         text-transform: uppercase;
+      }
+
+      @include MQ(S) {
+        font-size: 30px;
+
+        span {
+          font-size: 14px;
+        }
       }
 
       @include MQ(S) {
@@ -370,7 +387,7 @@ html, body {
 
     p {
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.6;
       margin-bottom: 20px;
 
@@ -493,6 +510,33 @@ html, body {
     height: 115px;
     max-width: 115px;
     width: 100%;
+
+    &:hover {
+      a {
+        &::after{
+          opacity: 0;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      position: relative;
+
+      &::after{
+        @include transition(opacity .3s ease);
+
+        background: rgba(black, .15);
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -566,6 +610,13 @@ html, body {
 
   &__group {
     margin-bottom: 15px;
+
+    &.error {
+      input, 
+      textarea {
+        border-color: #cd0027;
+      }
+    }
   }
 
   input,
@@ -583,6 +634,7 @@ html, body {
     border: 1px solid black;
     color: black;
     font-size: 12px;
+    font-weight: 500;
     line-height: 1.2;
     padding: 8px 20px;
     text-transform: uppercase;
@@ -604,10 +656,12 @@ html, body {
 
   button[type="submit"] {
     @include transition(all .3s ease);
+
     background-color: black;
     border: 1px solid black;
     color: white;
     font-size: 12px;
+    font-weight: 600;
     height: 50px;
     text-align: center;
     text-transform: uppercase;
@@ -662,4 +716,19 @@ html, body {
 #map {
   height: 100%;
   width: 100%;
+}
+
+.Release {
+  
+  &__title {
+    padding: 35px 0;
+  }
+
+  h3 {
+    font-family: $ss;
+    letter-spacing: 12px;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
 }

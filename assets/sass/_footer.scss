@@ -46,17 +46,36 @@
         margin: 0 3px;
       }
 
+      @include MQ(M) {
+        @include transition(background-color .3s ease);
+
+        &:hover {
+          background-color: white;
+        }
+      }
+
       a {
         display: block;
         height: 100%;
         position: relative;
+
+        &:hover {
+          .icon {
+            fill: black;
+          }
+        }
       }
 
-      img {
+      img,
+      svg {
         @include center;
         max-height: 20px;
         max-width: 20px;
         position: absolute;
+
+        .icon {
+          @include transition(fill .3s ease);
+        }
       }
     }
 

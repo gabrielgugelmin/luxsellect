@@ -64,21 +64,18 @@ $maxM:    $M - 1px;
 /* Placeholder
   ========================================================================== */
 
-@mixin placeholder($color){
-  &.placeholder{
-    color: $color
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+      color: $color;
   }
-
-  &:-moz-placeholder{
-    color: $color
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $color;
   }
-    
-  &::-webkit-input-placeholder{
-    color: $color
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $color;
   }
-
-  &:-ms-input-placeholder{
-    color: $color
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $color;
   }
 }
 
