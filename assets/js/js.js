@@ -9,6 +9,21 @@ $(function(){
     slide: '.Banner__item'
   });
 
+  $('.js-slider-modal').slick({
+    arrows: false,
+    cssEase: 'linear',
+    dots: true,
+  });
+
+  
+
+  $('.modal').on('shown.bs.modal', function (e) {
+
+    $('.js-slider-modal').resize();
+    $('.js-slider-modal')[0].slick.setPosition();
+    
+  })
+
   // MENU
   // click no hamburguer icon
   $('.MenuTrigger').on('click', function (e) {
@@ -427,8 +442,8 @@ $(function(){
     map = new google.maps.Map(document.getElementById("map"), myOptions);
 
     var icon = {
-      url: "assets/img/icons/pin.svg", // url
-      scaledSize: new google.maps.Size(80, 80), // scaled size
+      url: "assets/img/icons/pin.png", // url
+      scaledSize: new google.maps.Size(44, 44), // scaled size
       origin: new google.maps.Point(0, 0), // origin
       anchor: new google.maps.Point(0, 0) // anchor
     };
@@ -571,14 +586,17 @@ function getProducts() {
       var x = false;
       $.each(data, function (index, element) {
         if (element.titulo != '') {
-          console.log(element);
 
-          var $box = '<div class="Grid__item mix ' + element[0].idVeiculoCategoria + '" data-marca="' + element[0].marca + '" data-modelo="' + element[0].nome + '" data-valor="' + element[0].preco + '">' +
+          var $box = '<div class="Grid__item js-open-modal" data-toggle="modal" data-target="#carro' + element[0].id + '" data-marca="' + element[0].marca + '" data-modelo="' + element[0].nome + '" data-valor="' + element[0].preco + '">' +
             '<div class="Grid__img" style="background-image: url(assets/img/carros/' + element[0].imagem +'.jpg);"></div>' +
               '<div class="Grid__content">' +
               '<h4>' +
             '<small>' + element[0].marca + '</small> ' + element[0].nome +
 							'</h4>' +
+              '<div class="Car-info">' +
+                '<div class="Car-info__date">' + element[0].ano + '</div>' +
+                '<div class="Car-info__price">' + element[0].preco + '</div>' +
+              '</div>' +
               '<div class="Grid__date">' +  element[0].ano + '</div>' +
             '<div class="Grid__price">' + element[0].preco + '</div>' +
             '</div>' +

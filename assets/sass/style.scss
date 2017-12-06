@@ -174,9 +174,7 @@ html, body {
       box-shadow: 0;
       position: relative;
       width: 25%;
-
       
-    @include MQ(M) {
       &::after {
         @include transition(all .3s ease);
         background-color: $ship;
@@ -188,17 +186,15 @@ html, body {
         position: absolute;
         width: 0;
       }
-    }
 
       &:hover {
         box-shadow: 0 2px 4px 1px rgba(black, .5);
         cursor: pointer;
         z-index: 1;
 
-          &::after{
-            width: 100%;
-          }
-
+        &::after{
+          width: 100%;
+        }
       }
     }
 
@@ -246,58 +242,15 @@ html, body {
       text-transform: uppercase;
 
       small {
+        color: $ship;
         display: block;
         font-size: 16px;
-        font-weight: 300;
+        font-weight: 400;
         letter-spacing: 6px;
         line-height: 1.2;
         margin-bottom: 8px;
-        text-transform: lowercase;        
+        text-transform: lowercase;
       }
-    }
-  }
-
-  &__date,
-  &__price {
-    color: $mine-shaft;
-    font-family: $ss;
-    font-size: 18px;
-    padding-left: 40px;
-    letter-spacing: 6px;
-    position: relative;
-
-    &::before {
-      @include center(y);
-      content: "";
-      display: inline-block;
-      height: 18px;
-      left: 0;
-      position: absolute;
-      width: 18px;
-    }
-
-    @include MQ(S) {
-      font-size: 22px;
-
-      &::before {
-        height: 24px;
-        width: 24px;
-      }
-    }
-  }
-
-  &__date {
-    margin-bottom: 10px;
-    
-    &::before {
-      background: url(../img/icons/time.svg) 0 0/contain no-repeat;
-    }
-  }
-
-  &__price{
-    
-    &::before {
-      background: url(../img/icons/dolar.svg) 0 0/contain no-repeat;
     }
   }
 
@@ -346,6 +299,54 @@ html, body {
     }
   }
 
+}
+
+.Car-info {
+  &__date,
+  &__price {
+    color: $mine-shaft;
+    font-family: $ss;
+    font-size: 18px;
+    padding-left: 40px;
+    letter-spacing: 6px;
+    position: relative;
+
+    &::before {
+      @include center(y);
+      content: "";
+      display: inline-block;
+      height: 18px;
+      left: 0;
+      position: absolute;
+      width: 18px;
+    }
+
+    @include MQ(S) {
+      font-size: 22px;
+
+      &::before {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+
+  &__date {
+    font-weight: 500;
+    margin-bottom: 10px;
+    
+    &::before {
+      background: url(../img/icons/time.svg) 0 0/contain no-repeat;
+    }
+  }
+
+  &__price{
+    font-weight: 700;
+
+    &::before {
+      background: url(../img/icons/dolar.svg) 0 0/contain no-repeat;
+    }
+  }
 }
 
 .Info {
@@ -605,6 +606,29 @@ html, body {
   }
 }
 
+.Button {
+  @include transition(all .3s ease);
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  height: 50px;
+  letter-spacing: 2px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  word-spacing: 4px;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+  }
+}
+
 .Form {
   width: 100%;
 
@@ -620,8 +644,7 @@ html, body {
   }
 
   input,
-  textarea,
-  button[type="submit"] {
+  textarea {
     letter-spacing: 2px;
     word-spacing: 4px;
   }
@@ -652,25 +675,6 @@ html, body {
 
   input {
     height: 50px;
-  }
-
-  button[type="submit"] {
-    @include transition(all .3s ease);
-
-    background-color: black;
-    border: 1px solid black;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    height: 50px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100%;
-
-    &:hover {
-      background-color: white;
-      color: black;
-    }
   }
 }
 
@@ -730,5 +734,182 @@ html, body {
     text-align: center;
     font-size: 24px;
     text-transform: uppercase;
+  }
+}
+
+.lux-modal {
+  &-content {
+    
+    @include MQ(M) {
+      display: flex;
+    }
+  }
+
+  &-slider {
+    width: 100%;
+  }
+
+  &-slider__item {
+    
+    height: 320px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include MQ(S) {
+      height: 415px;
+    }
+  }
+
+  &__close {
+    @include transition(all .3s linear);
+
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    height: 50px;
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    text-decoration: none;
+    top: 15px;
+    width: 50px;
+    z-index: 2;
+
+    span{
+      @include center;
+      @include transition(all .2s linear);
+
+      background-color: transparent;
+      display: block;
+      height: 1px;
+      position: relative;
+      width: 100%;
+
+      &::after, 
+      &::before{
+        @include transition(all .3s linear);
+        @include transform(rotate(0));
+
+        background-color: #848383;
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      &::after{
+        @include transform(rotate(-44deg));
+
+        bottom: 0;
+      }
+
+      &::before{
+        top: 0;
+        @include transform(rotate(44deg));
+      }
+    }
+  }
+
+  &__column {
+    &:first-child {
+      margin-bottom: 60px;
+    }
+
+    @include MQ(M) {
+      &:first-child {
+        margin-bottom: 0;
+        margin-right: 25px;
+        width: 62%;
+      }
+
+      &:last-child {
+        width: 38%;
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    max-width: 270px;
+    margin: 0 auto 60px;
+
+    @include MQ(M) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__desc {
+    padding: 0 15px;
+
+    p {
+      color: $mine-shaft;
+      font-family: $ss;
+      font-size: 12.5px;
+      font-weight: 100;
+      letter-spacing: 4px;
+      line-height: 1.2;
+      word-spacing: 6px;
+    }
+  }
+
+  &__title {
+    h4 {
+      color: $mine-shaft;
+      font-family: $ss;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: -2px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+
+      small {
+        color: $ship;
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 6px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  .Car-info {
+    border-bottom: 1px solid #a9a9a9;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    &__date,
+    &__price {
+      font-size: 16px;
+
+      &::before {
+        height: 18px;
+        width: 18px;
+      }
+    }
+  }
+}
+
+.modal {
+  &-content {
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+  }
+
+  &-dialog {
+     top: 15%;
+  }
+
+  &-backdrop {
+    background: white;
+
+    &.in {
+      opacity: .95;
+    }
   }
 }
