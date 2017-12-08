@@ -1,14 +1,22 @@
 .slick-dots {
-  bottom: 20px;
+  bottom: 10px;
+  left: 15px;
+  width: auto;
+
+  @include MQ(S) {
+    bottom: 30px;
+    width: 100%;
+  }
   
   li {
     @include transition(all .35s ease);
 
     background: rgba(black, .34);
+    display: block;
     border-radius: 50%;
-    height: 14px;
-    margin: 0 4px;
-    width: 14px;
+    height: 10px;
+    margin: 3px 4px;
+    width: 10px;
 
     &.slick-active {
       background: white;
@@ -16,6 +24,13 @@
 
     button {
       display: none;
+    }
+
+    @include MQ(S) {
+      display: inline-block;
+      height: 14px;
+      margin: 0 4px;
+      width: 14px;
     }
   }
 }

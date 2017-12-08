@@ -168,15 +168,11 @@
         display: table-cell;
         padding: 0 15px;
         text-align: center;
-        vertical-align: bottom;
+        vertical-align: middle;
       }
 
       @include MQ(M) {
         padding: 0 30px;
-
-        &:hover {
-
-        }
       }
     }
   }
@@ -197,6 +193,7 @@
     p{
       color: $porcelain;
       font-size: 14px;
+      font-weight: 200;
       line-height: 1.4;
       text-align: center;
     }

@@ -383,12 +383,13 @@ html, body {
 
       @include MQ(M) {
         font-size: 24px;
+        letter-spacing: 18px;
       }
     }
 
     p {
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 200;
       line-height: 1.6;
       margin-bottom: 20px;
 
@@ -591,12 +592,13 @@ html, body {
 
     @include MQ(S) {
       font-size: 24px;
+      letter-spacing: 18px;
     }
   }
 
   p {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 200;
     margin-bottom: 25px;
   }
 
@@ -688,7 +690,7 @@ html, body {
     position: relative;
     margin-bottom: 35px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 200;
 
     &::before {
       background-position: 0 0;
@@ -730,7 +732,7 @@ html, body {
 
   h3 {
     font-family: $ss;
-    letter-spacing: 12px;
+    letter-spacing: 18px;
     text-align: center;
     font-size: 24px;
     text-transform: uppercase;
@@ -767,14 +769,20 @@ html, body {
     background-color: transparent;
     border: 0;
     display: inline-block;
-    height: 50px;
+    height: 35px;
     padding: 0;
     position: absolute;
     right: 15px;
     text-decoration: none;
-    top: 15px;
-    width: 50px;
+    top: -4px;
+    width: 35px;
     z-index: 2;
+
+    @include MQ(M) {
+      top: 15px;
+      height: 50px;
+      width: 50px;
+    }
 
     span{
       @include center;
@@ -832,11 +840,12 @@ html, body {
 
   &__logo {
     display: block;
-    max-width: 270px;
-    margin: 0 auto 60px;
+    max-width: 180px;
+    margin: 0 0 30px;
 
     @include MQ(M) {
-      margin-bottom: 80px;
+      max-width: 270px;
+      margin: 0 auto 80px;
     }
   }
 
@@ -850,6 +859,9 @@ html, body {
       font-weight: 100;
       letter-spacing: 4px;
       line-height: 1.2;
+      position: relative;
+      padding-right: 20px;
+      max-height: 203px;
       word-spacing: 6px;
     }
   }
@@ -861,7 +873,7 @@ html, body {
       font-size: 20px;
       font-weight: 700;
       margin-top: -2px;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       text-transform: uppercase;
 
       small {

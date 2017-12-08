@@ -24,6 +24,15 @@ $(function(){
     
   })
 
+  $('.lux-modal .Button').on('click', function() {
+    var nome = $('.lux-modal__title h4').text().trim();
+
+    $('#formContato textarea').val('Olá, tenho interesse no veículo ' + nome);
+  });
+
+  // SCROLLBAR
+  $('.js-scrollbar').perfectScrollbar();
+
   // MENU
   // click no hamburguer icon
   $('.MenuTrigger').on('click', function (e) {
@@ -130,7 +139,7 @@ $(function(){
       clientId: '9dd32bbb00284a19b83ebe8dbda91cb6',
       accessToken: '4167153856.1677ed0.7cfe7712070d4c5da39d9a197a0f4d9a',
       limit: 12,
-      template: '<li class="Instafeed__item" style="background-image: url({{image}});"><a href="{{link}}"></a></li>'
+      template: '<li class="Instafeed__item" style="background-image: url({{image}});"><a href="{{link}}" target="_blank"></a></li>'
     });
     feed.run();
   }
@@ -597,8 +606,6 @@ function getProducts() {
                 '<div class="Car-info__date">' + element[0].ano + '</div>' +
                 '<div class="Car-info__price">' + element[0].preco + '</div>' +
               '</div>' +
-              '<div class="Grid__date">' +  element[0].ano + '</div>' +
-            '<div class="Grid__price">' + element[0].preco + '</div>' +
             '</div>' +
           '</div>';
 
