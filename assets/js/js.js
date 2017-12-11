@@ -15,14 +15,23 @@ $(function(){
     dots: true,
   });
 
+  $('.modal').on('show.bs.modal', function (e) {
+    //var id = $();
+    console.log(e.relatedTarget.getAttribute('data-id'));
+
+    $.getJSON("assets/json/produtos.json", function (data) {
+      var item = getProduto(data, 1);
+      console.log(item);
+    });
+
+  }); 
   
 
   $('.modal').on('shown.bs.modal', function (e) {
-
     $('.js-slider-modal').resize();
     $('.js-slider-modal')[0].slick.setPosition();
     
-  })
+  });
 
   $('.lux-modal .Button').on('click', function() {
     var nome = $('.lux-modal__title h4').text().trim();
@@ -506,7 +515,7 @@ function initIsotope() {
   var counter = initShow; //counter for load more button
   var iso = $container.data('isotope'); // get Isotope instance
 
-  if ($container.is('Cars')) {
+  if ($container.is('#Cars')) {
     //append load more button
     $('.Grid__load .container').append('<a href="#/" class="Grid__loadmore" id="LoadProducts">see all</a>');
   }
@@ -526,7 +535,7 @@ function initIsotope() {
     $container.isotope('layout');
 
     //when no more to load, hide show more button
-    if (hiddenElems.length == 0 && $container.is('#Grid')) {
+    if (hiddenElems.length == 0 && $container.is('#Cars')) {
       jQuery("#LoadProducts").hide();
       //$('.Grid__load .container').append('<a href="#/" id="entreContato" class="Grid__loadmore" data-toggle="modal" data-target="#modalContato">entre em contato</a>');
     } else {
@@ -562,27 +571,6 @@ function initIsotope() {
 
 function getProducts() {
 
-  var query_string = {};
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    // If first entry with this name
-    if (typeof query_string[pair[0]] === "undefined") {
-      query_string[pair[0]] = decodeURIComponent(pair[1]);
-      // If second entry with this name
-    } else if (typeof query_string[pair[0]] === "string") {
-      var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
-      query_string[pair[0]] = arr;
-      // If third or later entry with this name
-    } else {
-      query_string[pair[0]].push(decodeURIComponent(pair[1]));
-    }
-  }
-
-  //Veriavel com categoria
-  var idCategoria = query_string.categoria;
-
   // /assets/json/veiculos.php
   $.getJSON("assets/json/produtos.json", function (data) {
 
@@ -596,7 +584,7 @@ function getProducts() {
       $.each(data, function (index, element) {
         if (element.titulo != '') {
 
-          var $box = '<div class="Grid__item js-open-modal" data-toggle="modal" data-target="#carro' + element[0].id + '" data-marca="' + element[0].marca + '" data-modelo="' + element[0].nome + '" data-valor="' + element[0].preco + '">' +
+          var $box = '<a href="#" class="Grid__item js-open-modal" data-toggle="modal" data-id="' + element[0].id + '" data-target="#carro' + element[0].id + '" data-marca="' + element[0].marca + '" data-modelo="' + element[0].nome + '" data-valor="' + element[0].preco + '">' +
             '<div class="Grid__img" style="background-image: url(assets/img/carros/' + element[0].imagem +'.jpg);"></div>' +
               '<div class="Grid__content">' +
               '<h4>' +
@@ -607,7 +595,7 @@ function getProducts() {
                 '<div class="Car-info__price">' + element[0].preco + '</div>' +
               '</div>' +
             '</div>' +
-          '</div>';
+          '</a>';
 
         } else {
 
@@ -678,5 +666,16 @@ function clickOutsideMenu() {
     });
   } else {
     $(document).off('mouseup');
+  }
+}
+
+function getProduto(data, id) {
+  
+  console.log(data);
+  for (var i = 0; i < data.length; i++) {
+
+    if (data[i].id == id) {
+      return (data[i].nome);
+    }
   }
 }

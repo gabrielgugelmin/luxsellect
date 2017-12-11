@@ -161,6 +161,10 @@ html, body {
     overflow: hidden;
     width: 100%;
 
+    &:hover {
+      text-decoration: none;
+    }
+
     @include MQ(570px){
       width: 50%;
     }
@@ -227,7 +231,7 @@ html, body {
   }
 
   &__content {
-    padding: 15px 20px;
+    padding: 30px 20px;
 
     @include MQ(S) {
       padding: 25px 40px 35px;
@@ -239,6 +243,7 @@ html, body {
       font-size: 25px;
       font-weight: 700;
       margin-bottom: 40px;
+      margin-top: 0;
       text-transform: uppercase;
 
       small {
@@ -741,7 +746,8 @@ html, body {
 
 .lux-modal {
   &-content {
-    
+    padding-bottom: 60px;
+
     @include MQ(M) {
       display: flex;
     }
