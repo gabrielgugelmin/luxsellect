@@ -19,7 +19,7 @@ $(function(){
     //var id = $();
     console.log(e.relatedTarget.getAttribute('data-id'));
 
-    $.getJSON("assets/json/produtos.json", function (data) {
+    $.getJSON("assets/json/veiculos.php", function (data) {
       var item = getProduto(data, 1);
       console.log(item);
     });
@@ -87,54 +87,83 @@ $(function(){
     }
   });
 
-  /* FORM CONTATO */
-  $('#formContato').submit(function (e) {
+  	/* FORM CONTATO */
+	$('#formContato').submit(function(e){ 
+	    
+	    e.preventDefault();
+	    var qtdErro = 0;
+	
+	    	$(this).find('[data-validate=true]').each(function() {
+				var value = $.trim($(this).find('input, textarea').val());
+				if(!value.length > 0){
+					$(this).addClass('error');
+					qtdErro++;
+				}else{
+					$(this).removeClass('error');
+				}
+			}); 
+			
+			if(qtdErro == 0){
+				return $.ajax({
+					type: "POST",
+					url: "/ajax/contato.php",
+					data: $(this).serialize(),
+					success: function(data) {
+					if (data === "success") {
+						alert('Message sent successfully.');
+			 			// Limpa o form
+			 			$('#formContato').trigger("reset");
+					} else {
+					  alert('Error trying to send data: '+data);
+					}
+					}
+				});
+			}else{
+				alert('Error while trying to send message. Try again.');
+			}
+	
+	});
 
-    e.preventDefault();
-
-    if (formValidate($(this)) == 0) {
-      return $.ajax({
-        type: "POST",
-        url: "/ajax/contato.php",
-        data: $(this).serialize(),
-        success: function (data) {
-          if (data === "success") {
-            alert('Mensagem enviada com sucesso.');
-            // Limpa o form
-            $('#formContato').trigger("reset");
-          } else {
-            alert('Erro ao tentar enviar mensagem: ' + data);
-          }
-        }
-      });
-    }
-
-  });
-
-
-  /* FORM NEWSLETTER */
-  $('#formNews').submit(function (e) {
-
-    e.preventDefault();
-
-    if (formValidate($(this)) == 0) {
-      return $.ajax({
-        type: "POST",
-        url: "/ajax/newsletter.php",
-        data: $(this).serialize(),
-        success: function (data) {
-          if (data === "success") {
-            alert('Cadastro realizado com sucesso.');
-            // Limpa o form
-            $('#formNews').trigger("reset");
-          } else {
-            alert('Erro ao cadastrar: ' + data);
-          }
-        }
-      });
-    }
-
-  });
+  
+  	/* FORM NEWSLETTER */
+	$('#formNews').submit(function(e){ 
+	    
+	    e.preventDefault();
+	    var qtdErro = 0;
+	
+	    	$(this).find('[data-validate=true]').each(function() {
+				var value = $.trim($(this).find('input').val());
+				if(!value.length > 0){
+					$(this).addClass('error');
+					qtdErro++;
+				}else{
+					$(this).removeClass('error');
+				}
+			}); 
+			
+			if(qtdErro == 0){
+				return $.ajax({
+					type: "POST",
+					url: "/ajax/newsletter.php",
+					data: $(this).serialize(),
+					success: function(data) {
+					if (data === "success") {
+						alert('Successful registration.');
+			 			// Limpa o form
+			 			$('#formNewsletter').trigger("reset");
+					} else {
+					  alert('Error trying to send data: '+data);
+					}
+					}
+				});
+			}else{
+				alert('Erro ao tentar enviar dados. Tente novamente.');
+			}
+	
+	});
+  
+  
+  
 
   if ($('.js-grid').length) {
     getProducts();
@@ -572,7 +601,7 @@ function initIsotope() {
 function getProducts() {
 
   // /assets/json/veiculos.php
-  $.getJSON("assets/json/produtos.json", function (data) {
+  $.getJSON("assets/json/showroom.php", function (data) {
 
   })
     .fail(function (data) {
@@ -584,18 +613,54 @@ function getProducts() {
       $.each(data, function (index, element) {
         if (element.titulo != '') {
 
-          var $box = '<a href="#" class="Grid__item js-open-modal" data-toggle="modal" data-id="' + element[0].id + '" data-target="#carro' + element[0].id + '" data-marca="' + element[0].marca + '" data-modelo="' + element[0].nome + '" data-valor="' + element[0].preco + '">' +
-            '<div class="Grid__img" style="background-image: url(assets/img/carros/' + element[0].imagem +'.jpg);"></div>' +
+          var $box = '<a href="#" class="Grid__item js-open-modal" data-toggle="modal" data-id="' + element.idVeiculo + '" data-target="#carro' + element.idVeiculo + '" data-marca="' + element.idMarca + '" data-modelo="' + element.modelo + '" data-valor="' + element.preco + '">' +
+            '<div class="Grid__img" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa +');"></div>' +
               '<div class="Grid__content">' +
               '<h4>' +
-            '<small>' + element[0].marca + '</small> ' + element[0].nome +
+            '<small>' + element.idMarca + '</small> ' + element.modelo +
 							'</h4>' +
               '<div class="Car-info">' +
-                '<div class="Car-info__date">' + element[0].ano + '</div>' +
-                '<div class="Car-info__price">' + element[0].preco + '</div>' +
+                '<div class="Car-info__date">' + element.anoModelo + '</div>' +
+                '<div class="Car-info__price">' + element.preco + '</div>' +
               '</div>' +
             '</div>' +
           '</a>';
+          
+          
+          var $modal = '<div class="modal fade lux-modal" tabindex="-1" role="dialog" id="carro'+ element.idVeiculo +'">'+
+							'<div class="modal-dialog modal-lg" role="document">'+
+								'<div class="modal-content">'+
+									'<img src="assets/img/logo.png" alt="Lux Sell Ect" class="lux-modal__logo">'+
+									'<button class="lux-modal__close js-close" data-dismiss="modal" aria-label="Close">'+
+									'<span></span>'+
+									'</button>'+
+									'<div class="lux-modal-content">'+
+									  '<div class="lux-modal__column">'+
+											'<div class="lux-modal-slider js-slider-modal">'+
+												'<div class="lux-modal-slider__item" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa[0] +');"></div>'+
+												'<div class="lux-modal-slider__item" url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa[1] +');"></div>'+
+												'<div class="lux-modal-slider__item" style="background-image: url(assets/img/carros/c1.jpg); "></div>'+
+												'<div class="lux-modal-slider__item" style="background-image: url(assets/img/carros/c2.jpg); "></div>'+
+											'</div>'+
+										'</div>'+
+										'<div class="lux-modal__column">'+
+											'<div class="lux-modal__desc">'+
+												'<div class="lux-modal__title">'+
+													'<h4><small>'+ element.idMarca +'</small> '+ element.modelo +'</h4>'+
+												'</div>'+
+												'<div class="Car-info">'+
+													'<div class="Car-info__date">'+ element.anoModelo +'</div>'+
+													'<div class="Car-info__price">'+ element.preco +'</div>'+
+												'</div>'+
+												'<p class="js-scrollbar">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o...</p>'+
+												'<a href="#Contact" class="Button js-scroll" data-dismiss="modal" aria-label="Close">ENTRAR EM CONTATO</a>'+
+											'</div>'+
+										'</div>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+          
 
         } else {
 
@@ -603,8 +668,48 @@ function getProducts() {
         }
 
         $(".js-grid").append($box);
+        //$("#modalWrapper").append($modal);
 
       });
+      
+      
+      
+      
+      
+/*
+      var x = false;
+  	$.each(data, function(index, element) { 
+		if(element.modelo!=''){
+	  //albuns/album_' + element.idAlbum + '/' + element.capa +'
+      var blindado = 'Blindado';
+      if(element.blindado=='sim'){ blindado = 'Blindado'; } else { blindado = ''; }
+
+      var $box = '<div class="Grid__item marca_' + element.km + '" data-category="' + element.idVeiculoCategoria + '" data-marca="' + element.idMarca + '" data-modelo="' + element.modelo + '" data-valor="' + element.preco + '" data-anofabricacao="' + element.anoFabricacao + '" data-anomodelo="' + element.anoModelo + '">' +
+        '<a href="/veiculo/'+ element.alias +'/'+ element.idVeiculo +'">' +
+          '<div class="Grid__img" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa +');"></div>' +
+          '<div class="Grid__title">' +
+            '<h4>' + element.idMarca + '</h4>' +
+            '<h5>' + element.modelo + '</h5>' +
+            '<small>'+ element.anoFabricacao +'/'+ element.anoModelo + '<br> R$ ' + element.preco +'</small>' +
+          '</div>' +
+        '</a>' +
+      '</div>';
+  		
+  		}else{
+
+	  		var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
+		}
+		
+		$(".js-grid").append($box);
+		
+	});
+*/
+      
+      
+      
+      
+      
+      
 
       if (x == true) {
       } else {

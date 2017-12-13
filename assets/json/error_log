@@ -1,0 +1,70 @@
+[12-Dec-2017 11:51:51 America/Sao_Paulo] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQL Error: --> SELECT 
+													*,v.alias as alias,v.idAlbum as idAlbum,c.nome as idCor,vc.alias as idVeiculoCategoria,m.nome as idMarca,m.idMarca as km,
+													group_concat(a.file) AS capa,
+													FROM Veiculo v INNER JOIN albumMidia a ON (v.idAlbum=a.idAlbum) 
+													INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.idCor=v.idCor)
+													INNER JOIN veiculoCategoria vc ON (vc.idVeiculoCategoria=v.idVeiculoCategoria)
+													WHERE v.status>0 and a.ordem=0 GROUP BY a.idAlbum ORDER BY a.ordem ASC <--You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM Veiculo v INNER JOIN albumMidia a ON (v.idAlbum=a.idAlbum) 
+													IN' at line 4' in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php:32
+Stack trace:
+#0 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(787): Que in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php on line 32
+[12-Dec-2017 11:52:39 America/Sao_Paulo] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQL Error: --> SELECT 
+													*,v.alias as alias,v.idAlbum as idAlbum,c.nome as idCor,vc.alias as idVeiculoCategoria,m.nome as idMarca,m.idMarca as km,
+													group_concat(a.file) AS capa,
+													FROM Veiculo v INNER JOIN albumMidia a ON (v.idAlbum=a.idAlbum) 
+													INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.idCor=v.idCor)
+													INNER JOIN veiculoCategoria vc ON (vc.idVeiculoCategoria=v.idVeiculoCategoria)
+													WHERE v.status>0 and a.ordem=0 GROUP BY a.idAlbum ORDER BY a.ordem ASC <--You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM Veiculo v INNER JOIN albumMidia a ON (v.idAlbum=a.idAlbum) 
+													IN' at line 4' in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php:32
+Stack trace:
+#0 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(787): Que in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php on line 32
+[12-Dec-2017 12:01:24 America/Sao_Paulo] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQL Error: --> SELECT 
+													*,v.alias as alias,v.idAlbum as idAlbum,c.nome as idCor,vc.alias as idVeiculoCategoria,m.nome as idMarca,m.idMarca as km,
+													group_concat(a.file) AS capa 
+													FROM Veiculo v INNER 
+													INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.idCor=v.idCor)
+													INNER JOIN veiculoCategoria vc ON (vc.idVeiculoCategoria=v.idVeiculoCategoria)
+													WHERE v.status>0 <--You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.' at line 5' in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php:32
+Stack trace:
+#0 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(787): QueryExecutor::execute(Object(SqlQuery))
+#1 /home/luxsellect/public_html/application/class/mysql/Vei in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php on line 32
+[12-Dec-2017 12:02:53 America/Sao_Paulo] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQL Error: --> SELECT 
+													*,v.alias as alias,v.idAlbum as idAlbum,c.nome as idCor,vc.alias as idVeiculoCategoria,m.nome as idMarca,m.idMarca as km,
+													group_concat(albumMidia.file) AS capa 
+													FROM Veiculo v INNER 
+													INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.idCor=v.idCor)
+													INNER JOIN veiculoCategoria vc ON (vc.idVeiculoCategoria=v.idVeiculoCategoria)
+													WHERE v.status>0 <--You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.' at line 5' in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php:32
+Stack trace:
+#0 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(787): QueryExecutor::execute(Object(SqlQuery))
+#1 /home/luxsellect/public_html/application/class/ in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php on line 32
+[12-Dec-2017 12:03:55 America/Sao_Paulo] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQL Error: --> SELECT 
+													*,v.alias as alias,v.idAlbum as idAlbum,c.nome as idCor,vc.alias as idVeiculoCategoria,m.nome as idMarca,m.idMarca as km,
+													group_concat(albumMidia.file) AS capa 
+													FROM Veiculo v INNER JOIN albumMidia a ON (v.idAlbum=a.idAlbum) 
+													INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.idCor=v.idCor)
+													INNER JOIN veiculoCategoria vc ON (vc.idVeiculoCategoria=v.idVeiculoCategoria)
+													WHERE v.status>0 and a.ordem=0 GROUP BY a.idAlbum ORDER BY a.ordem ASC <--Unknown column 'albumMidia.file' in 'field list'' in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php:32
+Stack trace:
+#0 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(787): QueryExecutor::execute(Object(SqlQuery))
+#1 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(62): VeiculoMySqlDAO->getList(Object(SqlQuery))
+# in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php on line 32
+[12-Dec-2017 12:04:00 America/Sao_Paulo] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQL Error: --> SELECT 
+													*,v.alias as alias,v.idAlbum as idAlbum,c.nome as idCor,vc.alias as idVeiculoCategoria,m.nome as idMarca,m.idMarca as km,
+													group_concat(albumMidia.file) AS capa 
+													FROM Veiculo v INNER JOIN albumMidia a ON (v.idAlbum=a.idAlbum) 
+													INNER JOIN Marca m ON (v.idMarca=m.idMarca)
+													INNER JOIN Cor c ON (c.idCor=v.idCor)
+													INNER JOIN veiculoCategoria vc ON (vc.idVeiculoCategoria=v.idVeiculoCategoria)
+													WHERE v.status>0 and a.ordem=0 GROUP BY a.idAlbum ORDER BY a.ordem ASC <--Unknown column 'albumMidia.file' in 'field list'' in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php:32
+Stack trace:
+#0 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(787): QueryExecutor::execute(Object(SqlQuery))
+#1 /home/luxsellect/public_html/application/class/mysql/VeiculoMySqlDAO.class.php(62): VeiculoMySqlDAO->getList(Object(SqlQuery))
+# in /home/luxsellect/public_html/application/class/sql/QueryExecutor.class.php on line 32
