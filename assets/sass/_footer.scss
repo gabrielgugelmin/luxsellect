@@ -1,6 +1,7 @@
 .SiteFooter {
   background-color: $ship ;
   padding: 45px 0;
+  position: relative;
 
   &__logo {
     display: block;
@@ -90,5 +91,11 @@
         margin: 0 5px;
       }
     }
+  }
+
+  .inffus {
+    bottom: 15px;
+    position: absolute;
+    right: 15px;
   }
 }

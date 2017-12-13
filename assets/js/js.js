@@ -9,27 +9,29 @@ $(function(){
     slide: '.Banner__item'
   });
 
-  $('.js-slider-modal').slick({
-    arrows: false,
-    cssEase: 'linear',
-    dots: true,
-  });
-
-  $('.modal').on('show.bs.modal', function (e) {
-    //var id = $();
-    console.log(e.relatedTarget.getAttribute('data-id'));
-
+/*   $('.modal').on('show.bs.modal', function (e) {
     $.getJSON("assets/json/veiculos.php", function (data) {
       var item = getProduto(data, 1);
-      console.log(item);
     });
 
-  }); 
+  });  */
   
 
   $('.modal').on('shown.bs.modal', function (e) {
-    $('.js-slider-modal').resize();
-    $('.js-slider-modal')[0].slick.setPosition();
+    var _this = this;
+
+     setTimeout(function () {
+       $(_this).find('.js-slider-modal').slick({
+        arrows: false,
+        cssEase: 'linear',
+        dots: true,
+      });
+
+      $(_this).find('.js-slider-modal').resize();
+      $(_this).find('.js-slider-modal')[0].slick.setPosition();
+    }, 150);
+
+    
     
   });
 
@@ -775,8 +777,6 @@ function clickOutsideMenu() {
 }
 
 function getProduto(data, id) {
-  
-  console.log(data);
   for (var i = 0; i < data.length; i++) {
 
     if (data[i].id == id) {

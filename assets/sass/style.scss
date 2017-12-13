@@ -234,13 +234,13 @@ html, body {
     padding: 30px 20px;
 
     @include MQ(S) {
-      padding: 25px 40px 35px;
+      padding: 25px 30px 35px;
     }
 
     h4 {
       color: $mine-shaft;
       font-family: $ss;
-      font-size: 25px;
+      font-size: 22px;
       font-weight: 700;
       margin-bottom: 40px;
       margin-top: 0;
@@ -249,12 +249,20 @@ html, body {
       small {
         color: $ship;
         display: block;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         letter-spacing: 6px;
         line-height: 1.2;
         margin-bottom: 8px;
         text-transform: lowercase;
+      }
+
+      @include MQ(L) {
+        font-size: 25px;
+
+        small {
+          font-size: 16px;
+        }
       }
     }
   }
@@ -326,7 +334,7 @@ html, body {
       width: 18px;
     }
 
-    @include MQ(S) {
+    @include MQ(L) {
       font-size: 22px;
 
       &::before {
@@ -856,19 +864,19 @@ html, body {
   }
 
   &__desc {
-    padding: 0 15px;
+    color: $mine-shaft;
+    font-family: $ss;
+    font-size: 12.5px;
+    font-weight: 100;
+    letter-spacing: 4px;
+    line-height: 1.2;
+    word-spacing: 6px;
 
-    p {
-      color: $mine-shaft;
-      font-family: $ss;
-      font-size: 12.5px;
-      font-weight: 100;
-      letter-spacing: 4px;
-      line-height: 1.2;
+    .js-scrollbar {
       position: relative;
-      padding-right: 20px;
       max-height: 203px;
-      word-spacing: 6px;
+      padding: 0 20px 0 0;
+      margin-bottom: 15px;
     }
   }
 
