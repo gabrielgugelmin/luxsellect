@@ -19,16 +19,43 @@ $(function(){
 
   $('.modal').on('shown.bs.modal', function (e) {
     var _this = this;
+    var slider = $(this).find('.js-slider-modal');
+    var nav = $(this).find('.js-slider-modal-nav');
 
      setTimeout(function () {
-       $(_this).find('.js-slider-modal').slick({
+       slider.slick({
         arrows: false,
+        asNavFor: nav,
         cssEase: 'linear',
         dots: true,
+        slidesToScroll: 1,
+        slidesToShow: 1
       });
 
-      $(_this).find('.js-slider-modal').resize();
-      $(_this).find('.js-slider-modal')[0].slick.setPosition();
+      nav.slick({
+        arrows: true,
+        asNavFor: slider,
+        cssEase: 'linear',
+        dots: false,
+        focusOnSelect: true,
+        slidesToScroll: 1,
+        slidesToShow: 3,
+        mobileFirst: true,
+        responsive: [
+          {
+            breakpoint: 540,
+            settings: {
+              slidesToShow: 5,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+
+
+
+      slider.resize();
+      slider[0].slick.setPosition();
     }, 150);
 
     
@@ -602,7 +629,7 @@ function initIsotope() {
 
 function getProducts() {
 
-  // /assets/json/veiculos.php
+  // assets/json/showroom.php
   $.getJSON("assets/json/showroom.php", function (data) {
 
   })
@@ -619,8 +646,10 @@ function getProducts() {
             '<div class="Grid__img" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa +');"></div>' +
               '<div class="Grid__content">' +
               '<h4>' +
-            '<small>' + element.idMarca + '</small> ' + element.modelo +
-							'</h4>' +
+                '<small>' + element.idMarca + '</small> ' + element.modelo +
+              '</h4>' +
+              '<p>' + element.motor + '</p>' +
+              '<p>' + element.km + '</p>' +
               '<div class="Car-info">' +
                 '<div class="Car-info__date">' + element.anoModelo + '</div>' +
                 '<div class="Car-info__price">' + element.preco + '</div>' +
@@ -639,8 +668,8 @@ function getProducts() {
 									'<div class="lux-modal-content">'+
 									  '<div class="lux-modal__column">'+
 											'<div class="lux-modal-slider js-slider-modal">'+
-												'<div class="lux-modal-slider__item" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa[0] +');"></div>'+
-												'<div class="lux-modal-slider__item" url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa[1] +');"></div>'+
+												'<div class="lux-modal-slider__item" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa +');"></div>'+
+												'<div class="lux-modal-slider__item" url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa +');"></div>'+
 												'<div class="lux-modal-slider__item" style="background-image: url(assets/img/carros/c1.jpg); "></div>'+
 												'<div class="lux-modal-slider__item" style="background-image: url(assets/img/carros/c2.jpg); "></div>'+
 											'</div>'+
@@ -649,9 +678,11 @@ function getProducts() {
 											'<div class="lux-modal__desc">'+
 												'<div class="lux-modal__title">'+
 													'<h4><small>'+ element.idMarca +'</small> '+ element.modelo +'</h4>'+
-												'</div>'+
+                        '</div>'+
+                        '<p>' + element.motor + '</p>' +
+                        '<p>' + element.km + '</p>' +
 												'<div class="Car-info">'+
-													'<div class="Car-info__date">'+ element.anoModelo +'</div>'+
+                          '<div class="Car-info__date">' + element.anoModelo +'</div>'+
 													'<div class="Car-info__price">'+ element.preco +'</div>'+
 												'</div>'+
 												'<p class="js-scrollbar">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o...</p>'+

@@ -11,9 +11,9 @@
 														vc.alias as idVeiculoCategoria,
 														m.nome as idMarca,
 														m.idMarca as km,
-														fuel.idCombustivel as idCombustivel,
-														trans.idTransmissao as idTransmissao,
-														sen.idSensor as idSensor
+														fuel.tipo as idCombustivel,
+														trans.tipo as idTransmissao,
+														sen.tipo as idSensor
 														
 														FROM Veiculo v 
 														
@@ -51,6 +51,19 @@ for($i=0;$i<count($veiculoModal);$i++){
 						<div class="lux-modal-slider__item" style="background-image: url(/assets/img/albuns/album_<?=$albumModal[$j]->idAlbum?>/<?=$albumModal[$j]->file?>); "></div>
 						<?php } ?>
 					</div>
+					<div class="lux-modal-slider-nav js-slider-modal-nav">
+						<?php for($j=0;$j<count($albumModal);$j++){  ?>
+						<div class="lux-modal-slider-nav__item" style="background-image: url(/assets/img/albuns/album_<?=$albumModal[$j]->idAlbum?>/<?=$albumModal[$j]->file?>); "></div>
+						<?php } ?>
+					</div>
+					<footer class="lux-modal__footer">
+						<span>COMPARTILHAR: </span>
+						<ul>
+							<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?=$siteUrl?>" target="_blank"><img src="assets/img/icons/facebook2.svg" alt="Facebook"></a></li>
+							<li><a href="https://twitter.com/home?status=<?=$rowVeiculo->modelo?>%20@%20LuxSellEct%0A<?=$siteUrl?>" target="_blank"><img src="assets/img/icons/twitter2.svg" alt="Twitter"></a></li>
+							<li><a href="mailto:?subject=Lux Sell Ect / <?=$rowVeiculo->modelo?>&body=%0A%0A<?=$rowVeiculo->idMarca?> - <?=$rowVeiculo->modelo?>%0A%0A<?=$siteTitle?>%0A<?=$siteUrl?>%0A%0A" target="_blank"><img src="assets/img/icons/email.svg" alt="Email"></a></li>
+						</ul>
+					</footer>
 				</div>
 				<div class="lux-modal__column">
 					<div class="lux-modal__desc">
@@ -59,6 +72,9 @@ for($i=0;$i<count($veiculoModal);$i++){
 								<small><?=$rowVeiculo->idMarca?></small> <?=$rowVeiculo->modelo?>
 							</h4>
 						</div>
+
+						<p><?=$rowVeiculo->motor?></p>
+						<p><?=$rowVeiculo->km?></p>
 
 						<div class="Car-info">
 							<div class="Car-info__date">
@@ -72,41 +88,43 @@ for($i=0;$i<count($veiculoModal);$i++){
 
 						<div class="js-scrollbar">
 						
-							<ul>	
-								<?php if($rowVeiculo->idMarca!=''){ ?><li>Marca: <span><?=$rowVeiculo->idMarca?></span></li><?php } ?>  
-								<?php if($rowVeiculo->modelo!=''){ ?><li>Modelo: <span><?=$rowVeiculo->modelo?></span></li><?php } ?>  
-								<?php if($rowVeiculo->preco!=''){ ?><li>Preço: <span>R$ <?=$rowVeiculo->preco?></span></li><?php } ?> 
-								<?php if($rowVeiculo->idCor!=''){ ?><li>Cor: <span><?=$rowVeiculo->idCor?></span></li><?php } ?>
-								<?php if($rowVeiculo->anoFabricacao!=''){ ?><li>Ano de fabricação: <span><?=$rowVeiculo->anoFabricacao?></span></li><?php } ?>
-								<?php if($rowVeiculo->anoModelo!=''){ ?><li>Ano do modelo: <span><?=$rowVeiculo->anoModelo?></span></li><?php } ?>
-								<?php if($rowVeiculo->km!=''){ ?><li>Km: <span><?=$rowVeiculo->km?></span></li><?php } ?>  		
-								<?php if($rowVeiculo->motor!=''){ ?><li>Motor: <span><?=$rowVeiculo->motor?></span></li><?php } ?>
-								<?php if($rowVeiculo->potencia!=''){ ?><li>Potência: <span><?=$rowVeiculo->potencia?></span></li><?php } ?>
-								<?php if($rowVeiculo->aceleracao!=''){ ?><li>Aceleração: <span><?=$rowVeiculo->aceleracao?></span></li><?php } ?>
-								<?php if($rowVeiculo->airbag!=''){ ?><li>Airbag: <span><?=$rowVeiculo->airbag?></span></li><?php } ?>
-								<?php if($rowVeiculo->garantiaFabrica!=''){ ?><li>Garantia de fábrica: <span><?=$rowVeiculo->garantiaFabrica?></span></li><?php } ?>
-								<?php if($rowVeiculo->idCombustivel!=''){ ?><li>Combustível: <span><?=$rowVeiculo->idCombustivel?></span></li><?php } ?>
-								<?php if($rowVeiculo->idTransmissao!=''){ ?><li>Transmissão: <span><?=$rowVeiculo->idTransmissao?></span></li><?php } ?>
-								<?php if($rowVeiculo->placa!=''){ ?><li>Placa: <span>XXX-<?=substr($rowVeiculo->placa, -4)?></span></li><?php } ?>
-								<?php if($rowVeiculo->Portas!=''){ ?><li>Portas: <span><?=$rowVeiculo->portas?></span></li><?php } ?>
-								<?php if($rowVeiculo->Motor!=''){ ?><li>Motor: <span><?=$rowVeiculo->motor?></span></li><?php } ?>
-								<?php if($rowVeiculo->multimidia!=''){ ?><li>Multimídia: <span><?=$rowVeiculo->multimidia?></span></li><?php } ?>
-								<?php if($rowVeiculo->bancos!=''){ ?><li>Bancos: <span><?=$rowVeiculo->bancos?></span></li><?php } ?>
-								<?php if($rowVeiculo->freios!=''){ ?><li>Freios: <span><?=$rowVeiculo->freios?></span></li><?php } ?>
-								<?php if($rowVeiculo->farois!=''){ ?><li>Faróis: <span><?=$rowVeiculo->farois?></span></li><?php } ?>
-								<?php if($rowVeiculo->rodas!=''){ ?><li>Rodas: <span><?=$rowVeiculo->rodas?></span></li><?php } ?>
-								<?php if($rowVeiculo->idSensor!=''){ ?><li>Sensor de estacionamento: <span><?=$rowVeiculo->idSensor?></span></li><?php } ?>
-								<?php if($rowVeiculo->bluetooth=='sim'){ ?><li>Bluetooth: <span><?=strtoupper($rowVeiculo->bluetooth)?></span></li><?php } ?>
-								<?php if($rowVeiculo->tetoSolar=='sim' or $rowVeiculo->tetoSolar=='semipanoramico'){ ?><li>Teto Solar: <span><?=strtoupper($rowVeiculo->tetoSolar)?></span></li><?php } ?>
-								<?php if($rowVeiculo->conversivel=='sim'){ ?><li>Conversível: <span><?=strtoupper($rowVeiculo->conversivel)?></span></li><?php } ?>
-								
-								<?php if($rowVeiculo->pilotoAutomatico=='sim'){ ?><li>Piloto Automático: <span><?=strtoupper($rowVeiculo->pilotoAutomatico)?></span></li><?php } ?>
-								
-								<?php if($rowVeiculo->sensorChuva=='sim'){ ?><li>Sensor de Chuva: <span><?=strtoupper($rowVeiculo->sensorChuva)?></span></li><?php } ?>
-								<?php if($rowVeiculo->blindado=='sim'){ ?><li>Blindado: <span><?=strtoupper($rowVeiculo->blindado)?></span></li><?php } ?>
-								<?php if($rowVeiculo->observacoes=='sim'){ ?><li>Observações: <span><?=strtoupper($rowVeiculo->observacoes)?></span></li><?php } ?>
+						<ul>	
+							<?php if($rowVeiculo->idMarca!=''){ ?><li>Marca: <span><?=$rowVeiculo->idMarca?></span></li><?php } ?>  
+							<?php if($rowVeiculo->modelo!=''){ ?><li>Modelo: <span><?=$rowVeiculo->modelo?></span></li><?php } ?>  
+							<?php if($rowVeiculo->preco!=''){ ?><li>Preço: <span>R$ <?=$rowVeiculo->preco?></span></li><?php } ?> 
+							<?php if($rowVeiculo->idCor!=''){ ?><li>Cor: <span><?=$rowVeiculo->idCor?></span></li><?php } ?>
+							<?php if($rowVeiculo->anoFabricacao!=''){ ?><li>Ano de fabricação: <span><?=$rowVeiculo->anoFabricacao?></span></li><?php } ?>
+							<?php if($rowVeiculo->anoModelo!=''){ ?><li>Ano do modelo: <span><?=$rowVeiculo->anoModelo?></span></li><?php } ?>
+							<?php if($rowVeiculo->km!=''){ ?><li>Km: <span><?=$rowVeiculo->km?></span></li><?php } ?>  		
+							<?php if($rowVeiculo->motor!=''){ ?><li>Motor: <span><?=$rowVeiculo->motor?></span></li><?php } ?>
+							<?php if($rowVeiculo->potencia!=''){ ?><li>Potência: <span><?=$rowVeiculo->potencia?></span></li><?php } ?>
+							<?php if($rowVeiculo->aceleracao!=''){ ?><li>Aceleração: <span><?=$rowVeiculo->aceleracao?></span></li><?php } ?>
+							<?php if($rowVeiculo->airbag!=''){ ?><li>Airbag: <span><?=$rowVeiculo->airbag?></span></li><?php } ?>
+							<?php if($rowVeiculo->garantiaFabrica!=''){ ?><li>Garantia de fábrica: <span><?=$rowVeiculo->garantiaFabrica?></span></li><?php } ?>
+							<?php if($rowVeiculo->idCombustivel!=''){ ?><li>Combustível: <span><?=$rowVeiculo->idCombustivel?></span></li><?php } ?>
+							<?php if($rowVeiculo->idTransmissao!=''){ ?><li>Transmissão: <span><?=$rowVeiculo->idTransmissao?></span></li><?php } ?>
+							<?php if($rowVeiculo->placa!=''){ ?><li>Placa: <span>XXX-<?=substr($rowVeiculo->placa, -4)?></span></li><?php } ?>
+							<?php if($rowVeiculo->Portas!=''){ ?><li>Portas: <span><?=$rowVeiculo->portas?></span></li><?php } ?>
+							<?php if($rowVeiculo->Motor!=''){ ?><li>Motor: <span><?=$rowVeiculo->motor?></span></li><?php } ?>
+							<?php if($rowVeiculo->multimidia!=''){ ?><li>Multimídia: <span><?=$rowVeiculo->multimidia?></span></li><?php } ?>
+							<?php if($rowVeiculo->bancos!=''){ ?><li>Bancos: <span><?=$rowVeiculo->bancos?></span></li><?php } ?>
+							<?php if($rowVeiculo->freios!=''){ ?><li>Freios: <span><?=$rowVeiculo->freios?></span></li><?php } ?>
+							<?php if($rowVeiculo->farois!=''){ ?><li>Faróis: <span><?=$rowVeiculo->farois?></span></li><?php } ?>
+							<?php if($rowVeiculo->rodas!=''){ ?><li>Rodas: <span><?=$rowVeiculo->rodas?></span></li><?php } ?>
+							<?php if($rowVeiculo->idSensor!=''){ ?><li>Sensor de estacionamento: <span><?=$rowVeiculo->idSensor?></span></li><?php } ?>
+							<?php if($rowVeiculo->bluetooth=='sim'){ ?><li>Bluetooth: <span><?=strtoupper($rowVeiculo->bluetooth)?></span></li><?php } ?>
+							<?php if($rowVeiculo->tetoSolar=='sim' or $rowVeiculo->tetoSolar=='semipanoramico'){ ?><li>Teto Solar: <span><?=strtoupper($rowVeiculo->tetoSolar)?></span></li><?php } ?>
+							<?php if($rowVeiculo->conversivel=='sim'){ ?><li>Conversível: <span><?=strtoupper($rowVeiculo->conversivel)?></span></li><?php } ?>
+							
+							<?php if($rowVeiculo->pilotoAutomatico=='sim'){ ?><li>Piloto Automático: <span><?=strtoupper($rowVeiculo->pilotoAutomatico)?></span></li><?php } ?>
+							
+							<?php if($rowVeiculo->sensorChuva=='sim'){ ?><li>Sensor de Chuva: <span><?=strtoupper($rowVeiculo->sensorChuva)?></span></li><?php } ?>
+							<?php if($rowVeiculo->blindado=='sim'){ ?><li>Blindado: <span><?=strtoupper($rowVeiculo->blindado)?></span></li><?php } ?>
+							<?php if($rowVeiculo->observacoes!=''){ ?><li>Observações: <span><?=strtoupper($rowVeiculo->observacoes)?></span></li><?php } ?>
 
-							</ul>	
+						</ul>	
+							
+							
 						</div>
 
 						<a href="#Contact" class="Button js-scroll" data-dismiss="modal" aria-label="Close">
@@ -125,7 +143,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 	<div class="PageWrapper">
 		<header class="Header">
 			<div class="container">
-				<a href="#Banner" class="Header__logo js-scroll">
+				<a href="index.html" class="Header__logo">
 					<img src="assets/img/logo.png" alt="Lux Sell Ect">
 				</a>
 
@@ -168,7 +186,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 			</div> <!-- container -->
 		</header> <!-- Header -->
 
-		<div id="#Banner" class="PageContent">
+		<div class="PageContent">
 
 			<section class="Banner js-bannerSlider">
 				
@@ -383,11 +401,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 							</a>
 						</li>
 					</ul>
-				</div>
-
-				<a class="inffus" title="Powered by Inffus" href="https://inffus.com" target="_blank">
-					<img src="https://inffus.com/inffus-web-intelligence.svg" width="25">
-				</a>
+				</div>				
 			</div> <!-- container -->
 
 		</footer> <!-- SiteFooter -->
