@@ -89,38 +89,37 @@ for($i=0;$i<count($veiculoModal);$i++){
 						<div class="js-scrollbar">
 						
 						<ul>	
-							<?php if($rowVeiculo->idMarca!=''){ ?><li>Marca: <span><?=$rowVeiculo->idMarca?></span></li><?php } ?>  
-							<?php if($rowVeiculo->modelo!=''){ ?><li>Modelo: <span><?=$rowVeiculo->modelo?></span></li><?php } ?>  
-							<?php if($rowVeiculo->preco!=''){ ?><li>Preço: <span>R$ <?=$rowVeiculo->preco?></span></li><?php } ?> 
-							<?php if($rowVeiculo->idCor!=''){ ?><li>Cor: <span><?=$rowVeiculo->idCor?></span></li><?php } ?>
-							<?php if($rowVeiculo->anoFabricacao!=''){ ?><li>Ano de fabricação: <span><?=$rowVeiculo->anoFabricacao?></span></li><?php } ?>
-							<?php if($rowVeiculo->anoModelo!=''){ ?><li>Ano do modelo: <span><?=$rowVeiculo->anoModelo?></span></li><?php } ?>
-							<?php if($rowVeiculo->km!=''){ ?><li>Km: <span><?=$rowVeiculo->km?></span></li><?php } ?>  		
-							<?php if($rowVeiculo->motor!=''){ ?><li>Motor: <span><?=$rowVeiculo->motor?></span></li><?php } ?>
-							<?php if($rowVeiculo->potencia!=''){ ?><li>Potência: <span><?=$rowVeiculo->potencia?></span></li><?php } ?>
-							<?php if($rowVeiculo->aceleracao!=''){ ?><li>Aceleração: <span><?=$rowVeiculo->aceleracao?></span></li><?php } ?>
-							<?php if($rowVeiculo->airbag!=''){ ?><li>Airbag: <span><?=$rowVeiculo->airbag?></span></li><?php } ?>
-							<?php if($rowVeiculo->garantiaFabrica!=''){ ?><li>Garantia de fábrica: <span><?=$rowVeiculo->garantiaFabrica?></span></li><?php } ?>
-							<?php if($rowVeiculo->idCombustivel!=''){ ?><li>Combustível: <span><?=$rowVeiculo->idCombustivel?></span></li><?php } ?>
-							<?php if($rowVeiculo->idTransmissao!=''){ ?><li>Transmissão: <span><?=$rowVeiculo->idTransmissao?></span></li><?php } ?>
-							<?php if($rowVeiculo->placa!=''){ ?><li>Placa: <span>XXX-<?=substr($rowVeiculo->placa, -4)?></span></li><?php } ?>
-							<?php if($rowVeiculo->Portas!=''){ ?><li>Portas: <span><?=$rowVeiculo->portas?></span></li><?php } ?>
-							<?php if($rowVeiculo->Motor!=''){ ?><li>Motor: <span><?=$rowVeiculo->motor?></span></li><?php } ?>
-							<?php if($rowVeiculo->multimidia!=''){ ?><li>Multimídia: <span><?=$rowVeiculo->multimidia?></span></li><?php } ?>
-							<?php if($rowVeiculo->bancos!=''){ ?><li>Bancos: <span><?=$rowVeiculo->bancos?></span></li><?php } ?>
-							<?php if($rowVeiculo->freios!=''){ ?><li>Freios: <span><?=$rowVeiculo->freios?></span></li><?php } ?>
-							<?php if($rowVeiculo->farois!=''){ ?><li>Faróis: <span><?=$rowVeiculo->farois?></span></li><?php } ?>
-							<?php if($rowVeiculo->rodas!=''){ ?><li>Rodas: <span><?=$rowVeiculo->rodas?></span></li><?php } ?>
-							<?php if($rowVeiculo->idSensor!=''){ ?><li>Sensor de estacionamento: <span><?=$rowVeiculo->idSensor?></span></li><?php } ?>
-							<?php if($rowVeiculo->bluetooth=='sim'){ ?><li>Bluetooth: <span><?=strtoupper($rowVeiculo->bluetooth)?></span></li><?php } ?>
-							<?php if($rowVeiculo->tetoSolar=='sim' or $rowVeiculo->tetoSolar=='semipanoramico'){ ?><li>Teto Solar: <span><?=strtoupper($rowVeiculo->tetoSolar)?></span></li><?php } ?>
-							<?php if($rowVeiculo->conversivel=='sim'){ ?><li>Conversível: <span><?=strtoupper($rowVeiculo->conversivel)?></span></li><?php } ?>
+							<?php if($rowVeiculo->idMarca!=''){ ?><li><strong>Marque:</strong> <span><?=$rowVeiculo->idMarca?></span></li><?php } ?>  
+							<?php if($rowVeiculo->modelo!=''){ ?><li><strong>Modèle:</strong> <span><?=$rowVeiculo->modelo?></span></li><?php } ?>  
+							<?php if($rowVeiculo->preco!=''){ ?><li><strong>Prix:</strong> <span>R$ <?=$rowVeiculo->preco?></span></li><?php } ?> 
+							<?php if($rowVeiculo->idCor!=''){ ?><li><strong>Couleur:</strong> <span><?=$rowVeiculo->idCor?></span></li><?php } ?>
+							<?php if($rowVeiculo->anoFabricacao!=''){ ?><li><strong>Année de fabrication:</strong> <span><?=$rowVeiculo->anoFabricacao?></span></li><?php } ?>
+							<?php if($rowVeiculo->anoModelo!=''){ ?><li><strong>Année du modèle:</strong> <span><?=$rowVeiculo->anoModelo?></span></li><?php } ?>
+							<?php if($rowVeiculo->km!=''){ ?><li><strong>Km:</strong> <span><?=$rowVeiculo->km?></span></li><?php } ?>  		
+							<?php if($rowVeiculo->motor!=''){ ?><li><strong>Mteur:</strong> <span><?=$rowVeiculo->motor?></span></li><?php } ?>
+							<?php if($rowVeiculo->potencia!=''){ ?><li><strong>Puissance:</strong> <span><?=$rowVeiculo->potencia?></span></li><?php } ?>
+							<?php if($rowVeiculo->aceleracao!=''){ ?><li><strong>Accélération:</strong> <span><?=$rowVeiculo->aceleracao?></span></li><?php } ?>
+							<?php if($rowVeiculo->airbag!=''){ ?><li><strong>Airbag:</strong> <span><?=$rowVeiculo->airbag?></span></li><?php } ?>
+							<?php if($rowVeiculo->garantiaFabrica!=''){ ?><li><strong>Garantie Legale:</strong> <span><?=$rowVeiculo->garantiaFabrica?></span></li><?php } ?>
+							<?php if($rowVeiculo->idCombustivel!=''){ ?><li><strong>Combustible:</strong> <span><?=$rowVeiculo->idCombustivel?></span></li><?php } ?>
+							<?php if($rowVeiculo->idTransmissao!=''){ ?><li><strong>Transmission:</strong> <span><?=$rowVeiculo->idTransmissao?></span></li><?php } ?>
+							<?php if($rowVeiculo->placa!=''){ ?><li><strong>Plaque:</strong> <span>XXX-<?=substr($rowVeiculo->placa, -4)?></span></li><?php } ?>
+							<?php if($rowVeiculo->Portas!=''){ ?><li><strong>Les portes:</strong> <span><?=$rowVeiculo->portas?></span></li><?php } ?>
+							<?php if($rowVeiculo->multimidia!=''){ ?><li><strong>Multimídia:</strong> <span><?=$rowVeiculo->multimidia?></span></li><?php } ?>
+							<?php if($rowVeiculo->bancos!=''){ ?><li><strong>Sièges:</strong> <span><?=$rowVeiculo->bancos?></span></li><?php } ?>
+							<?php if($rowVeiculo->freios!=''){ ?><li><strong>Freinage ABS:</strong> <span><?=$rowVeiculo->freios?></span></li><?php } ?>
+							<?php if($rowVeiculo->farois!=''){ ?><li><strong>Phares:</strong> <span><?=$rowVeiculo->farois?></span></li><?php } ?>
+							<?php if($rowVeiculo->rodas!=''){ ?><li><strong>Roues:</strong> <span><?=$rowVeiculo->rodas?></span></li><?php } ?>
+							<?php if($rowVeiculo->idSensor!=''){ ?><li><strong>Capteurs de stationnement:</strong> <span><?=$rowVeiculo->idSensor?></span></li><?php } ?>
+							<?php if($rowVeiculo->bluetooth=='sim'){ ?><li><strong>Bluetooth:</strong> <span><?=strtoupper($rowVeiculo->bluetooth)?></span></li><?php } ?>
+							<?php if($rowVeiculo->tetoSolar=='sim' or $rowVeiculo->tetoSolar=='semipanoramico'){ ?><li><strtong>Plafond solaire:</strtong> <span><?=strtoupper($rowVeiculo->tetoSolar)?></span></li><?php } ?>
+							<?php if($rowVeiculo->conversivel=='sim'){ ?><li><strong>Convertible:</strong> <span><?=($rowVeiculo->conversivel)?></span></li><?php } ?>
 							
-							<?php if($rowVeiculo->pilotoAutomatico=='sim'){ ?><li>Piloto Automático: <span><?=strtoupper($rowVeiculo->pilotoAutomatico)?></span></li><?php } ?>
+							<?php if($rowVeiculo->pilotoAutomatico=='sim'){ ?><li><strong>Pilote automatique:</strong> <span><?=strtoupper($rowVeiculo->pilotoAutomatico)?></span></li><?php } ?>
 							
-							<?php if($rowVeiculo->sensorChuva=='sim'){ ?><li>Sensor de Chuva: <span><?=strtoupper($rowVeiculo->sensorChuva)?></span></li><?php } ?>
-							<?php if($rowVeiculo->blindado=='sim'){ ?><li>Blindado: <span><?=strtoupper($rowVeiculo->blindado)?></span></li><?php } ?>
-							<?php if($rowVeiculo->observacoes!=''){ ?><li>Observações: <span><?=strtoupper($rowVeiculo->observacoes)?></span></li><?php } ?>
+							<?php if($rowVeiculo->sensorChuva=='sim'){ ?><li><strong>Détecteur de pluie:</strong> <span><?=strtoupper($rowVeiculo->sensorChuva)?></span></li><?php } ?>
+							<?php if($rowVeiculo->blindado=='sim'){ ?><li><strong>Blindado:</strong> <span><?=strtoupper($rowVeiculo->blindado)?></span></li><?php } ?>
+							<?php if($rowVeiculo->observacoes!=''){ ?><li><br><br><strong>Observations:</strong> <span><?=strtoupper($rowVeiculo->observacoes)?></span></li><?php } ?>
 
 						</ul>	
 							
@@ -128,7 +127,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 						</div>
 
 						<a href="#Contact" class="Button js-scroll" data-dismiss="modal" aria-label="Close">
-							ENTRAR EM CONTATO
+							Faire une proposition
 						</a>
 					</div>
 				</div>
@@ -175,11 +174,11 @@ for($i=0;$i<count($veiculoModal);$i++){
 					</div> <!-- Menu__info -->
 
 					<ul class="Menu__nav">
-						<li><a href="#LuxSellEct" class="js-scroll">EMPRESA</a></li>
-						<li><a href="#Releases" class="js-scroll">CARROS</a></li>
+						<li><a href="#LuxSellEct" class="js-scroll">Société</a></li>
+						<li><a href="#Releases" class="js-scroll">Cars</a></li>
 						<li><a href="#index.html" class="Menu__navLogo"><img src="assets/img/logo.png" alt="Lux Sell Ect"></a></li>
 						<li><a href="blog.html" target="_blank">BLOG</a></li>
-						<li><a href="#Contact" class="js-scroll">CONTATO</a></li>
+						<li><a href="#Contact" class="js-scroll">CONTACT</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -200,7 +199,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 						<div class="Banner__content">
 							<h2><span><?=$albumBannerHome[$b]->nome?></span><?=$albumBannerHome[$b]->alt?></h2>
 						</div> <!-- Banner-content -->
-						<a href="#Releases" class="Banner__link js-scroll">new releases</a>
+						<a href="#Releases" class="Banner__link js-scroll">NOUVELLES VERSIONS</a>
 					</div> <!-- container -->
 				</div>  <!-- Banner__item -->
 				
@@ -211,7 +210,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 			<section id="Releases" class="Release">
 				<div class="Release__title">
 					<div class="container">
-						<h3>NEW RELEASES</h3>
+						<h3>NOUVELLES VERSIONS</h3>
 					</div>
 				</div>
 
@@ -251,15 +250,13 @@ for($i=0;$i<count($veiculoModal);$i++){
 				<div class="Info__item">
 					<div class="Info__img" style="background-image: url(assets/img/sobre.jpg);"></div>
 					<div class="Info__text">
-						<h3>EMPRESA</h3>
+						<h3>Société</h3>
 						<p>
-							Lux Sell Ect is the luxury marketplace to find new and preowned luxury, exotic and classic cars for sale. Search more than
-							2,000 luxury cars, exotic cars, classic cars and other supercars with large, high quality images.
+							LuxSELLect, spécialiste "véhicules de sport et de prestige" depuis plus de 10 ans,
+Notre spécialité : l’achat et la vente de véhicules de haut de gamme. Nous disposons d’un large choix grâce à notre propre stock et grâce aux véhicules que nos clients nous confient en dépôt vente.
 						</p>
 						<p>
-							Founded in 2008, Lux Sell Ect today features the largest collection of luxury goods worldwide. Our 80,000 bespoke items curated
-							by Lux Sell Ect range from rare supercars to celebrity owned luxury real estates. An affluent audience of 25,000 per
-							day is browsing for the finest watches, helicopters and jets for sale.
+Nous disposons d’une équipe spécialisée dans la recherche personnalisée afin de vous trouver un véhicule répondant parfaitement à vos critères les plus précis grâce à notre réseau européen de partenaires.
 						</p>
 					</div>
 				</div>
@@ -267,11 +264,9 @@ for($i=0;$i<count($veiculoModal);$i++){
 				<div class="Info__item--right">
 					<div class="Info__img" style="background-image: url(assets/img/sobre2.jpg);"></div>
 					<div class="Info__text">
-						<h3>SERVIÇO<br>PERSONALIZADO</h3>
+						<h3>QUALITÉ <br>GARANTIE</h3>
 						<p>
-							Founded in 2008, Lux Sell Ect today features the largest collection of luxury goods worldwide. Our 80,000 bespoke items curated
-							by Lux Sell Ect range from rare supercars to celebrity owned luxury real estates. An affluent audience of 25,000 per
-							day is browsing for the finest watches, helicopters and jets for sale.
+							Depuis 2003, LuxSELLect se spécialise dans la vente de véhicules de luxe et de collection sur le marché de l'automobile en tant que synonyme de transparence, de fiabilité et de qualité. Nos véhicules sont vérifiés et certifiés, et notre inventaire est constamment rénové avec ce que il y a de le plus récent et plus exclusif. Ici vous trouverez la voiture que vous voulez.
 						</p>
 					</div>
 				</div>
@@ -279,7 +274,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 
 			<section class="Instagram">
 				<h3>
-					SIGA A Lux Sell Ect <br>NO INSTAGRAM
+					SUIVEZ-NOUS <br>SUR INSTAGRAM
 				</h3>
 
 				<div class="container">
@@ -298,25 +293,25 @@ for($i=0;$i<count($veiculoModal);$i++){
 			<section class="Contato">
 				<div class="Contato__column" style="background-image: url(assets/img/contato.jpg); "></div>
 				<div class="Contato__column" id="Contact">
-					<h3>CONTATO</h3>
+					<h3>CONTACT</h3>
 					<p>
-						 Quer falar com a Lux? Entre em contato abaixo e retornaremos brevemente!
+						 Vous voulez parler à Lux? Prenez tout simplement contact avec nous.
 					</p>
 					<form action="" class="Form" id="formContato">
 						<div class="Form__group" data-validate="true">
-							<input name="contact_name" type="text" placeholder="NAME">
+							<input name="contact_name" type="text" placeholder="NOM">
 						</div>
 						<div class="Form__group" data-validate="true">
 							<input name="contact_email" type="email" placeholder="E-MAIL">
 						</div>
 						<div class="Form__group">
-							<input name="contact_phone" type="tel" placeholder="PHONE">
+							<input name="contact_phone" type="tel" placeholder="Téléphone">
 						</div>
 						<div class="Form__group" data-validate="true">
 							<textarea name="contact_message" id="" cols="5" rows="5" placeholder="MESSAGE"></textarea>
 						</div>
 
-						<button class="Button" type="submit">enviar</button>
+						<button class="Button" type="submit">ENVOYEZ</button>
 					</form>
 				</div>
 			</section> <!-- Contato -->
@@ -327,17 +322,17 @@ for($i=0;$i<count($veiculoModal);$i++){
 					<div class="Info__text">
 						<h3>NEWSLETTER</h3>
 						<p>
-							 Cadastre seu nome e e-mail para receber as últimas novidades e lançamentos da Lux Sell Ect:
+							Entrez votre email pour recevoir les dernières nouvelles.
 						</p>
 						<form action="" class="Form" id="formNews">
 							<div class="Form__group" data-validate="true">
-								<input name="news_nome" type="text" placeholder="NOME">
+								<input name="news_nome" type="text" placeholder="NOM">
 							</div>
 							<div class="Form__group" data-validate="true">
 								<input name="news_email" type="email" placeholder="E-MAIL">
 							</div>
 
-							<button class="Button" type="submit">enviar</button>
+							<button class="Button" type="submit">ENVOYEZ</button>
 						</form>
 					</div>
 				</div>
@@ -347,13 +342,18 @@ for($i=0;$i<count($veiculoModal);$i++){
 						<div id="map"></div>
 					</div>
 					<div class="Info__text">
-						<h3>ONDE ESTAMOS</h3>
+						<h3>NOTRE LOCALISATION</h3>
 						<ul class="ContactList">
 							<li>
-								Alguma Rua, 987<br>Luxemburgo<br>12345
+								<i class="icon icon-pin"></i> 64 Avenue de la Liberté,<br> L-1930 Luxembourg
 							</li>
 							<li>
-								+98 765 43 21
+								<i class="icon icon-tel"></i> Téléphone 1: (+352) 661 888 818<br>
+								Téléphone 2: (+32) 485 650 175<br>
+								Téléphone 3: (+33) 663 251 910<br>
+							</li>
+							<li>
+								<i class="icon icon-email"></i> E-mail: info@luxsellect.com
 							</li>
 						</ul>
 					</div>
@@ -371,7 +371,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 					<span>LUX SOCIAL</span>
 					<ul>
 						<li>
-							<a href="#">
+							<a href="https://www.facebook.com/LuxSellect-133974377117263/">
 								<svg width="24px" height="49px" viewBox="0 0 24 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 									<!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
 									<title>facebook</title>
@@ -386,22 +386,13 @@ for($i=0;$i<count($veiculoModal);$i++){
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<svg width="50px" height="41px" viewBox="0 0 50 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-									<!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-									<title>twitter</title>
-									<defs></defs>
-									<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<g class="icon" fill-rule="nonzero" fill="#FFFFFF">
-											<path d="M49.837,5.065 C48.026,5.87 46.077,6.413 44.032,6.656 C46.12,5.406 47.721,3.426 48.476,1.064 C46.523,2.223 44.361,3.064 42.058,3.518 C40.215,1.554 37.588,0.326 34.681,0.326 C29.1,0.326 24.575,4.851 24.575,10.433 C24.575,11.224 24.664,11.995 24.837,12.736 C16.437,12.314 8.989,8.291 4.004,2.176 C3.134,3.668 2.636,5.404 2.636,7.258 C2.636,10.764 4.42,13.858 7.132,15.67 C5.476,15.617 3.917,15.162 2.554,14.405 C2.553,14.447 2.553,14.49 2.553,14.533 C2.553,19.429 6.037,23.513 10.661,24.443 C9.813,24.673 8.92,24.797 7.998,24.797 C7.346,24.797 6.713,24.734 6.096,24.615 C7.383,28.63 11.115,31.553 15.537,31.634 C12.078,34.345 7.721,35.961 2.985,35.961 C2.17,35.961 1.365,35.913 0.574,35.819 C5.048,38.688 10.36,40.36 16.067,40.36 C34.658,40.36 44.823,24.96 44.823,11.604 C44.823,11.166 44.814,10.729 44.795,10.295 C46.769,8.873 48.483,7.092 49.837,5.065 Z"
-											 id="Shape"></path>
-										</g>
-									</g>
-								</svg>
+							<a href="https://www.instagram.com/luxsellect/">
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.7 56.7" enable-background="new 0 0 56.7 56.7" xml:space="preserve"><g><path fill="#FFFFFF" d="M28.2,16.7c-7,0-12.8,5.7-12.8,12.8s5.7,12.8,12.8,12.8S41,36.5,41,29.5S35.2,16.7,28.2,16.7z M28.2,37.7 c-4.5,0-8.2-3.7-8.2-8.2s3.7-8.2,8.2-8.2s8.2,3.7,8.2,8.2S32.7,37.7,28.2,37.7z"/><circle fill="#FFFFFF" cx="41.5" cy="16.4" r="2.9"/><path fill="#FFFFFF" d="M49,8.9c-2.6-2.7-6.3-4.1-10.5-4.1H17.9c-8.7,0-14.5,5.8-14.5,14.5v20.5c0,4.3,1.4,8,4.2,10.7c2.7,2.6,6.3,3.9,10.4,3.9 h20.4c4.3,0,7.9-1.4,10.5-3.9c2.7-2.6,4.1-6.3,4.1-10.6V19.3C53,15.1,51.6,11.5,49,8.9z M48.6,39.9c0,3.1-1.1,5.6-2.9,7.3 s-4.3,2.6-7.3,2.6H18c-3,0-5.5-0.9-7.3-2.6C8.9,45.4,8,42.9,8,39.8V19.3c0-3,0.9-5.5,2.7-7.3c1.7-1.7,4.3-2.6,7.3-2.6h20.6 c3,0,5.5,0.9,7.3,2.7c1.7,1.8,2.7,4.3,2.7,7.2V39.9L48.6,39.9z"/></g></svg>
 							</a>
 						</li>
 					</ul>
-				</div>				
+				</div>
+				<a class="inffus" title="Powered by Inffus" href="https://inffus.com" target="_blank"><img src="https://inffus.com/inffus-web-intelligence.svg" width="25"></a>
 			</div> <!-- container -->
 
 		</footer> <!-- SiteFooter -->

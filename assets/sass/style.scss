@@ -730,29 +730,9 @@ html, body {
     font-size: 16px;
     font-weight: 200;
 
-    &::before {
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: "";
-      display: inline-block;
-      height: 20px;
-      left: 0;
+    .icon {
       position: absolute;
-      top: -4px;
-      width: 20px;
-    }
-
-    &:first-child {
-      &::before {
-        background-image: url(../img/icons/tel.svg);
-      }
-    }
-
-    &:last-child {
-      &::before {
-        background-image: url(../img/icons/pin.svg);
-      }
+      left: 0;
     }
   }
 }
@@ -964,16 +944,25 @@ html, body {
     word-spacing: 6px;
 
     .js-scrollbar {
+      letter-spacing: 2px;
       margin-bottom: 15px;
       max-height: 243px;
       padding: 0 20px 0 0;
       position: relative;
       text-transform: lowercase;
+
+      strong {
+        text-transform: capitalize;
+      }
     }
 
     ul {
-      list-style: none;
-      padding: 5px;
+      padding: 5px 20px;
+    }
+
+    li{
+      margin-bottom: 5px;
+      line-height: 1.4;
     }
   }
 
@@ -1066,5 +1055,23 @@ html, body {
     &.in {
       opacity: .95;
     }
+  }
+}
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+
+  &-email {
+    background: url(../img/icons/email2.svg) 0 0/contain no-repeat;
+  }
+
+  &-tel {
+    background: url(../img/icons/tel.svg) 0 0/contain no-repeat;
+  }
+
+  &-pin {
+    background: url(../img/icons/pin.svg) 0 0/contain no-repeat;
   }
 }

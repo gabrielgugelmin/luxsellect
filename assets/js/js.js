@@ -69,7 +69,9 @@ $(function(){
   });
 
   // SCROLLBAR
-  $('.js-scrollbar').perfectScrollbar();
+  $('.js-scrollbar').perfectScrollbar({
+    suppressScrollX: true
+  });
 
   // MENU
   // click no hamburguer icon
