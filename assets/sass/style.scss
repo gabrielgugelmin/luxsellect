@@ -772,7 +772,7 @@ html, body {
   }
 
   &-slider__item {
-    
+    cursor: pointer;
     height: 320px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -939,17 +939,17 @@ html, body {
     font-family: $ss;
     font-size: 11px;
     font-weight: 100;
-    letter-spacing: 4px;
+    //letter-spacing: 4px;
     line-height: 1.2;
     word-spacing: 6px;
 
     .js-scrollbar {
-      letter-spacing: 2px;
+      //letter-spacing: 2px;
       margin-bottom: 15px;
       max-height: 243px;
       padding: 0 20px 0 0;
       position: relative;
-      text-transform: lowercase;
+      //text-transform: lowercase;
 
       strong {
         text-transform: capitalize;

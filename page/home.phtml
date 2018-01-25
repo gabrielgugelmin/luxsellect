@@ -48,7 +48,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 				<div class="lux-modal__column">
 					<div class="lux-modal-slider js-slider-modal">
 						<?php for($j=0;$j<count($albumModal);$j++){  ?>
-						<div class="lux-modal-slider__item" style="background-image: url(/assets/img/albuns/album_<?=$albumModal[$j]->idAlbum?>/<?=$albumModal[$j]->file?>); "></div>
+						<div data-fancybox="gallery<?= $i; ?>" href="/assets/img/albuns/album_<?=$albumModal[$j]->idAlbum?>/<?=$albumModal[$j]->file?>" class="lux-modal-slider__item" style="background-image: url(/assets/img/albuns/album_<?=$albumModal[$j]->idAlbum?>/<?=$albumModal[$j]->file?>); "></div>
 						<?php } ?>
 					</div>
 					<div class="lux-modal-slider-nav js-slider-modal-nav">
@@ -190,7 +190,7 @@ for($i=0;$i<count($veiculoModal);$i++){
 			<section class="Banner js-bannerSlider">
 				
 				<?php 	
-						$albumBannerHome = DAOFactory::getAlbumMidiaDAO()->queryCondList(' idAlbum="1" ');
+						$albumBannerHome = DAOFactory::getAlbumMidiaDAO()->queryCondList(' idAlbum="18" ORDER BY ordem ASC ');
 						for($b=0;$b<count($albumBannerHome);$b++){ 
 				  ?>
 				
@@ -392,8 +392,8 @@ Nous disposons d’une équipe spécialisée dans la recherche personnalisée af
 						</li>
 					</ul>
 				</div>
-				<a class="inffus" title="Powered by Inffus" href="https://inffus.com" target="_blank"><img src="https://inffus.com/inffus-web-intelligence.svg" width="25"></a>
 			</div> <!-- container -->
+			<a class="inffus" title="Powered by Inffus" href="https://inffus.com" target="_blank"><img src="https://inffus.com/inffus-web-intelligence.svg" width="25"></a>
 
 		</footer> <!-- SiteFooter -->
 	</div> <!-- PageWrapper -->

@@ -63,7 +63,8 @@ $(function(){
   });
 
   $('.lux-modal .Button').on('click', function() {
-    var nome = $('.lux-modal__title h4').text().trim();
+    var nome = $(this).parent().find('.lux-modal__title h4').text().trim();
+    console.log(nome);
 
     $('#formContato textarea').val('Olá, tenho interesse no veículo ' + nome);
   });
